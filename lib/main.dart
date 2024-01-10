@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wapig/presentation/screens/screen_welcome.dart';
 
 void main() => runApp(const MyApp());
 
@@ -7,17 +8,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Material App',
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('WAPIG'),
-        ),
-        body: const Center(
-          child: Text('Welcome to wapig'),
-        ),
-      ),
+      home: ScreenWelcome()
     );
   }
 }

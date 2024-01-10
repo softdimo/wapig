@@ -1,0 +1,19 @@
+- para la creación del proyecto cmd + shift + P 
+- Flutter: New Project
+- Application
+- Elegir nombre del proyecto
+
+
+
+# Para la instalación de Provider
+- cmd + shift + P
+- Pubspec Assist: Add/Update dependencies
+- Escribir el nombre de la dependencia que queremos agregar "Provider"
+- Verificar en el archivo pubspec.yaml si la dependencia ya está agregada
+
+
+# Si deseamos cambiar la fuente debemos hacer lo siguiente:
+- descargar el archivo de la fuente que queremos usar. Ejemplo: https://github.com/Omnibus-Type/Sansita/blob/master/fonts/ttf/Sansita-Bold.ttf
+- Agregarlo al proyecto
+- Asegurarnos de que en el archivo pubspec.yaml esté descomentada la linea de fonts:
+- Asegurarnos de que en esa lineas está referenciado el archivo donde tenemos la fuente: asset: fonts/Sansita-Bold.ttf
