@@ -22,7 +22,7 @@ class _ScreenWelcomeState extends State<ScreenWelcome> {
       setState(() {
         _isLoading = false;
       });
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LoginScreen()),
       );
