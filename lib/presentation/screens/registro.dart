@@ -7,7 +7,7 @@ class RegistroScreen extends StatefulWidget {
   _RegistroScreenState createState() => _RegistroScreenState();
 }
 
-class _RegistroScreen extends State<RegistroScreen> {
+class _RegistroScreenState extends State<RegistroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
