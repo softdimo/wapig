@@ -1,8 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/buttons/buttons.dart';
-import 'package:wapig/presentation/screens/single_button/single_button.dart';
+import 'package:wapig/presentation/widgets/buttons/buttons.dart';
+import 'package:wapig/presentation/widgets/logo_image/logo_image.dart';
+import 'package:wapig/presentation/widgets/single_button/single_button.dart';
+import 'package:wapig/presentation/widgets/title_text/title_name.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -39,29 +41,17 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             children: [
               // Título
-              Container(
-                padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-                child: const Text(
-                  'Bienvenido',
-                  style: TextStyle(
-                      fontFamily: 'Sansita',
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
+              const TitleName(),
               // Logo
-              Image.asset(
-                'assets/images/logoWapig.png',
-                width: size.width * 0.4,
-                height: size.width * 0.4,
+              const LogoImage(width: 0.4),
+
+              const TitleName(
+                welcomeText: 'wapig',
+                fontSize: 36,
+                paddingTop: 0,
+                paddingBottom: 10,  
               ),
-              const Text(
-                'wapig',
-                style: TextStyle(
-                    fontFamily: 'Sansita',
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold),
-              ),
+
               const SizedBox(
                 height: 20,
               ),

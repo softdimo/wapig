@@ -1,13 +1,13 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/login.dart';
-import 'package:wapig/presentation/screens/app_logo_images.dart'; // Assuming renamed
+import 'package:wapig/presentation/screens/logos_welcome.dart';
+import 'package:wapig/presentation/screens/login.dart'; // Assuming renamed
 
 class ScreenWelcome extends StatefulWidget {
   const ScreenWelcome({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ScreenWelcomeState createState() => _ScreenWelcomeState();
 }
 
@@ -44,7 +44,7 @@ class _ScreenWelcomeState extends State<ScreenWelcome> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const AppLogoAndImages(),
+          const LogosWelcome(),
           _isLoading ? const CircularProgressIndicator() : Container(),
         ],
       ),
