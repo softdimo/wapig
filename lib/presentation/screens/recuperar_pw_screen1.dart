@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/buttons/buttons.dart';
 import 'package:wapig/presentation/screens/login.dart';
-import 'package:wapig/presentation/screens/recuperar_pw_screen1.dart';
+import 'package:wapig/presentation/screens/recuperar_pw_screen2.dart';
 import 'package:wapig/presentation/screens/single_button/single_button.dart';
 
-class RegistroScreen extends StatefulWidget {
-  const RegistroScreen({super.key});
+class RecuperarPwScreen1 extends StatefulWidget {
+  const RecuperarPwScreen1({super.key});
 
   @override
-  _RegistroScreenState createState() => _RegistroScreenState();
+  _RecuperarPwScreenState1 createState() => _RecuperarPwScreenState1();
 }
 
-class _RegistroScreenState extends State<RegistroScreen> {
+class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
   @override
   Widget build(BuildContext context) {
     // Obtener las dimensiones de la pantalla
@@ -65,23 +65,43 @@ class _RegistroScreenState extends State<RegistroScreen> {
 
               // Llamado a la clase botones. Devuelve un Row con dos botones
               // Los botones se alinean horizontalmente
-              ButtonsRow(
-                onPressed1: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginScreen()),
-                  );
-                },
-                onPressed2: () {},
-                textButton1: 'Iniciar sesión',
-                textButton2: 'Registrarse',
-                colorButton1: const Color.fromARGB(255, 34, 184, 197),
-                colorButton2: const Color.fromARGB(204, 173, 173, 178),
-                spacing: 10,
-                width: 0.4,
-                height: 50,
+              // ButtonsRow(
+              //   onPressed1: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(builder: (context) => const LoginScreen()),
+              //     );
+              //   },
+              //   onPressed2: () {},
+              //   textButton1: 'Iniciar sesión',
+              //   textButton2: 'Registrarse',
+              //   colorButton1: const Color.fromARGB(255, 34, 184, 197),
+              //   colorButton2: const Color.fromARGB(204, 173, 173, 178),
+              //   spacing: 10,
+              //   width: 0.4,
+              //   height: 50,
+              // ),
+
+              const Text(
+                'Recupera tu contraseña',
+                style: TextStyle(
+                    fontFamily: 'Sansita',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
               ),
 
+              const SizedBox(height: 30),
+
+              // =================================================
+
+              const Text(
+                'No te preocupes, enviaremos un código a tu email registrado.',
+                style: TextStyle(
+                    fontFamily: 'Sansita',
+                    fontSize: 14,
+                    fontWeight: FontWeight.normal),
+              ),
+              
               const SizedBox(height: 30),
 
               // Inputs
@@ -90,37 +110,6 @@ class _RegistroScreenState extends State<RegistroScreen> {
                 child: TextField(
                   decoration: const InputDecoration(
                     labelText: 'Correo electrónico',
-                  ),
-                  style: TextStyle(
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Sansita',
-                  ),
-                ),
-              ),
-
-              // =====================================
-
-              SizedBox(
-                width: size.width * 0.8,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    labelText: 'Contraseña',
-                  ),
-                  style: TextStyle(
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Sansita',
-                  ),
-                ),
-              ),
-              // const SizedBox(height: 30),
-
-              // =====================================
-              
-              SizedBox(
-                width: size.width * 0.8,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    labelText: 'Confirmar Contraseña',
                   ),
                   style: TextStyle(
                     fontSize: size.height * 0.02,
@@ -137,19 +126,32 @@ class _RegistroScreenState extends State<RegistroScreen> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const RecuperarPwScreen1()),
+                    MaterialPageRoute(builder: (context) => const RecuperarPwScreen2()),
                   );
                 },
-                textButton: 'Registrarse',
+                textButton: 'Obtener Código',
                 colorButton: const Color.fromARGB(255, 34, 184, 197),
                 width: 0.7,
                 height: 50,
               ),
               const SizedBox(height: 30),
 
-              // Texto de "olvidaste tu contraseña"
+              // =====================================
+
+              // Texto de "ya tienes tu contraseña"
               Text(
-                '¿Olvidaste tu contraseña?',
+                '¿Ya tienes tu contraseña?',
+                style: TextStyle(
+                  fontSize: size.height * 0.02,
+                  fontFamily: 'Sansita',
+                ),
+              ),
+
+              // =====================================
+
+              // Texto de "Haz click aquí para iniciar sesión"
+              Text(
+                'Haz click aquí para iniciar sesión',
                 style: TextStyle(
                   fontSize: size.height * 0.02,
                   fontFamily: 'Sansita',
