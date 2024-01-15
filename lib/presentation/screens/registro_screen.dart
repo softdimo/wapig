@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/buttons/buttons.dart';
+import 'package:wapig/presentation/screens/login.dart';
 import 'package:wapig/presentation/screens/single_button/single_button.dart';
 
 class RegistroScreen extends StatefulWidget {
@@ -64,7 +65,12 @@ class _RegistroScreenState extends State<RegistroScreen> {
               // Llamado a la clase botones. Devuelve un Row con dos botones
               // Los botones se alinean horizontalmente
               ButtonsRow(
-                onPressed1: () {},
+                onPressed1: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  );
+                },
                 onPressed2: () {},
                 textButton1: 'Iniciar seión',
                 textButton2: 'Registrarse',
