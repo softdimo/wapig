@@ -90,6 +90,9 @@ class _RegistroScreenState extends State<RegistroScreen> {
                   ),
                 ),
               ),
+
+              // =====================================
+
               SizedBox(
                 width: size.width * 0.8,
                 child: TextField(
@@ -102,7 +105,25 @@ class _RegistroScreenState extends State<RegistroScreen> {
                   ),
                 ),
               ),
+              // const SizedBox(height: 30),
+
+              // =====================================
+              
+              SizedBox(
+                width: size.width * 0.8,
+                child: TextField(
+                  decoration: const InputDecoration(
+                    labelText: 'Confirmar Contraseña',
+                  ),
+                  style: TextStyle(
+                    fontSize: size.height * 0.02,
+                    fontFamily: 'Sansita',
+                  ),
+                ),
+              ),
               const SizedBox(height: 30),
+
+              // =====================================
 
               // Botón de inicio de sesión
               SingleButton(
