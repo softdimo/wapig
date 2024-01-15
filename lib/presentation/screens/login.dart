@@ -22,7 +22,12 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Padding(
         padding: EdgeInsetsGeometry.lerp(
           EdgeInsets.zero,
-          EdgeInsets.fromLTRB(25, size.width * 0.70, 25, size.width * 0.20),
+          EdgeInsets.fromLTRB(
+            25, 
+            size.width * 0.70, 
+            25, 
+            size.width * 0.20
+          ),
           0.4,
         )!,
         child: Container(
