@@ -1,18 +1,15 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/buttons/buttons.dart';
-import 'package:wapig/presentation/screens/registro_screen.dart';
-import 'package:wapig/presentation/screens/single_button/single_button.dart';
+// import 'package:wapig/presentation/screens/buttons/buttons.dart';
+// import 'package:wapig/presentation/screens/single_button/single_button.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegistroScreen extends StatefulWidget {
+  const RegistroScreen({super.key});
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegistroScreenState createState() => _RegistroScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegistroScreenState extends State<RegistroScreen> {
   @override
   Widget build(BuildContext context) {
     // Obtener las dimensiones de la pantalla
@@ -23,12 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Padding(
         padding: EdgeInsetsGeometry.lerp(
           EdgeInsets.zero,
-          EdgeInsets.fromLTRB(
-            25, 
-            size.width * 0.70, 
-            25, 
-            size.width * 0.20
-          ),
+          EdgeInsets.fromLTRB(25, size.width * 0.70, 25, size.width * 0.20),
           0.4,
         )!,
         child: Container(
@@ -69,22 +61,17 @@ class _LoginScreenState extends State<LoginScreen> {
 
               //Llamado a la clase botones. Devuelve un Row don dos botones
               //Los botones se alinean horizontalmente
-              ButtonsRow(
-                onPressed1: () {},
-                onPressed2: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const RegistroScreen()),
-                  );
-                },
-                textButton1: 'Iniciar seión',
-                textButton2: 'Registrarse',
-                colorButton1: const Color.fromARGB(204, 173, 173, 178),
-                colorButton2: const Color.fromARGB(255, 34, 184, 197),
-                spacing: 10,
-                width: 0.4,
-                height: 50,
-              ),
+              // ButtonsRow(
+              //   onPressed1: () {},
+              //   onPressed2: () {},
+              //   textButton1: 'Iniciar seión',
+              //   textButton2: 'Registrarse',
+              //   colorButton1: const Color.fromARGB(204, 173, 173, 178),
+              //   colorButton2: const Color.fromARGB(255, 34, 184, 197),
+              //   spacing: 10,
+              //   width: 0.4,
+              //   height: 50,
+              // ),
 
               const SizedBox(height: 30),
 
@@ -116,13 +103,13 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 30),
 
               // Botón de inicio de sesión
-              SingleButton(
-                onPressed: () {},
-                textButton: 'Iniciar sesión',
-                colorButton: const Color.fromARGB(255, 34, 184, 197),
-                width: 0.7,
-                height: 50,
-              ),
+              // SingleButton(
+              //   onPressed: () {},
+              //   textButton: 'Iniciar sesión',
+              //   colorButton: const Color.fromARGB(255, 34, 184, 197),
+              //   width: 0.7,
+              //   height: 50,
+              // ),
               const SizedBox(height: 30),
 
               // Texto de "olvidaste tu contraseña"
