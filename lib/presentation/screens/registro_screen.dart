@@ -72,7 +72,7 @@ class _RegistroScreenState extends State<RegistroScreen> {
                   );
                 },
                 onPressed2: () {},
-                textButton1: 'Iniciar seión',
+                textButton1: 'Iniciar sesión',
                 textButton2: 'Registrarse',
                 colorButton1: const Color.fromARGB(255, 34, 184, 197),
                 colorButton2: const Color.fromARGB(204, 173, 173, 178),
