@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/buttons/buttons.dart';
 import 'package:wapig/presentation/screens/login.dart';
 import 'package:wapig/presentation/screens/recuperar_pw_screen1.dart';
-import 'package:wapig/presentation/screens/single_button/single_button.dart';
+import 'package:wapig/presentation/widgets/buttons/buttons.dart';
+import 'package:wapig/presentation/widgets/single_button/single_button.dart';
 
 class RegistroScreen extends StatefulWidget {
   const RegistroScreen({super.key});
