@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:wapig/presentation/screens/registro_screen.dart';
 import 'package:wapig/presentation/widgets/buttons/buttons.dart';
 import 'package:wapig/presentation/widgets/logo_image/logo_image.dart';
 import 'package:wapig/presentation/widgets/single_button/single_button.dart';
@@ -60,7 +61,12 @@ class _LoginScreenState extends State<LoginScreen> {
               //Los botones se alinean horizontalmente
               ButtonsRow(
                 onPressed1: () {},
-                onPressed2: () {},
+                onPressed2: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const RegistroScreen()),
+                  );
+                },
                 textButton1: 'Iniciar seión',
                 textButton2: 'Registrarse',
                 colorButton1: const Color.fromARGB(204, 173, 173, 178),
