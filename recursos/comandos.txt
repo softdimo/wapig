@@ -17,3 +17,15 @@
 - Agregarlo al proyecto
 - Asegurarnos de que en el archivo pubspec.yaml esté descomentada la linea de fonts:
 - Asegurarnos de que en esa lineas está referenciado el archivo donde tenemos la fuente: asset: fonts/Sansita-Bold.ttf
+
+# Llamar una clase que extienda del StatelessWidget:
+- stless
+
+# para adicionar los pendiente sugeridos
+- ctrl + .
+
+# la key es necesaria para el StatefulWidget
+({super.key});
+
+# Snippet para crear la estructura del archivo
+- mateapp

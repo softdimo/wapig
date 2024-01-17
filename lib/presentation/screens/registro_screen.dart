@@ -135,10 +135,10 @@ class _RegistroScreenState extends State<RegistroScreen> {
               // Botón de inicio de sesión
               SingleButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const RecuperarPwScreen1()),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => const RecuperarPwScreen1()),
+                  // );
                 },
                 textButton: 'Registrarse',
                 colorButton: const Color.fromARGB(255, 34, 184, 197),
