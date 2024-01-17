@@ -23,142 +23,153 @@ class _RegistroScreenState extends State<RegistroScreen> {
         // padding: const EdgeInsets.fromLTRB(30, 80, 30, 30),
         padding: EdgeInsetsGeometry.lerp(
           EdgeInsets.zero,
-          EdgeInsets.fromLTRB(25, size.width * 0.90, 25, size.width * 0.20), 0.4,
+          EdgeInsets.fromLTRB(25, size.width * 0.90, 25, size.width * 0.20),
+          0.4,
         )!,
 
         // ==========================================================
 
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: Colors.white,
-          ),
-          alignment: Alignment.bottomCenter,
-          child: Column(
-            children: [
-              Container(
-                padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-                child: const Text(
-                  'Bienvenido',
-                  style: TextStyle(
+        child: GestureDetector(
+            onTap: onTap,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.white,
+              ),
+              alignment: Alignment.bottomCenter,
+              child: Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+                    child: const Text(
+                      'Bienvenido',
+                      style: TextStyle(
+                          fontFamily: 'Sansita',
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  // Logo
+                  Image.asset(
+                    'assets/images/logoWapig.png',
+                    width: size.width * 0.4,
+                    height: size.width * 0.4,
+                  ),
+                  const Text(
+                    'wapig',
+                    style: TextStyle(
+                        fontFamily: 'Sansita',
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  // Llamado a la clase botones. Devuelve un Row con dos botones
+                  // Los botones se alinean horizontalmente
+                  ButtonsRow(
+                    onPressed1: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()),
+                      );
+                    },
+                    onPressed2: () {},
+                    textButton1: 'Iniciar sesión',
+                    textButton2: 'Registrarse',
+                    colorButton1: const Color.fromARGB(255, 34, 184, 197),
+                    colorButton2: const Color.fromARGB(204, 173, 173, 178),
+                    spacing: 10,
+                    width: 0.4,
+                    height: 50,
+                  ),
+
+                  const SizedBox(height: 30),
+
+                  // Inputs
+                  SizedBox(
+                    width: size.width * 0.8,
+                    child: TextField(
+                      decoration: const InputDecoration(
+                        labelText: 'Correo electrónico',
+                      ),
+                      style: TextStyle(
+                        fontSize: size.height * 0.02,
+                        fontFamily: 'Sansita',
+                      ),
+                    ),
+                  ),
+
+                  // =====================================
+
+                  SizedBox(
+                    width: size.width * 0.8,
+                    child: TextField(
+                      decoration: const InputDecoration(
+                        labelText: 'Contraseña',
+                      ),
+                      style: TextStyle(
+                        fontSize: size.height * 0.02,
+                        fontFamily: 'Sansita',
+                      ),
+                    ),
+                  ),
+                  // const SizedBox(height: 30),
+
+                  // =====================================
+
+                  SizedBox(
+                    width: size.width * 0.8,
+                    child: TextField(
+                      decoration: const InputDecoration(
+                        labelText: 'Confirmar Contraseña',
+                      ),
+                      style: TextStyle(
+                        fontSize: size.height * 0.02,
+                        fontFamily: 'Sansita',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+
+                  // =====================================
+
+                  // Botón de inicio de sesión
+                  SingleButton(
+                    onPressed: () {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => const RecuperarPwScreen1()),
+                      // );
+                    },
+                    textButton: 'Registrarse',
+                    colorButton: const Color.fromARGB(255, 34, 184, 197),
+                    width: 0.7,
+                    height: 50,
+                  ),
+                  const SizedBox(height: 30),
+
+                  // Texto de "olvidaste tu contraseña"
+                  Text(
+                    '¿Olvidaste tu contraseñass?',
+                    style: TextStyle(
+                      fontSize: size.height * 0.02,
                       fontFamily: 'Sansita',
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-              // Logo
-              Image.asset(
-                'assets/images/logoWapig.png',
-                width: size.width * 0.4,
-                height: size.width * 0.4,
-              ),
-              const Text(
-                'wapig',
-                style: TextStyle(
-                    fontFamily: 'Sansita',
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-
-              // Llamado a la clase botones. Devuelve un Row con dos botones
-              // Los botones se alinean horizontalmente
-              ButtonsRow(
-                onPressed1: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LoginScreen()),
-                  );
-                },
-                onPressed2: () {},
-                textButton1: 'Iniciar sesión',
-                textButton2: 'Registrarse',
-                colorButton1: const Color.fromARGB(255, 34, 184, 197),
-                colorButton2: const Color.fromARGB(204, 173, 173, 178),
-                spacing: 10,
-                width: 0.4,
-                height: 50,
-              ),
-
-              const SizedBox(height: 30),
-
-              // Inputs
-              SizedBox(
-                width: size.width * 0.8,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    labelText: 'Correo electrónico',
+                    ),
                   ),
-                  style: TextStyle(
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Sansita',
-                  ),
-                ),
+                ],
               ),
-
-              // =====================================
-
-              SizedBox(
-                width: size.width * 0.8,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    labelText: 'Contraseña',
-                  ),
-                  style: TextStyle(
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Sansita',
-                  ),
-                ),
-              ),
-              // const SizedBox(height: 30),
-
-              // =====================================
-              
-              SizedBox(
-                width: size.width * 0.8,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    labelText: 'Confirmar Contraseña',
-                  ),
-                  style: TextStyle(
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Sansita',
-                  ),
-                ),
-              ),
-              const SizedBox(height: 30),
-
-              // =====================================
-
-              // Botón de inicio de sesión
-              SingleButton(
-                onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => const RecuperarPwScreen1()),
-                  // );
-                },
-                textButton: 'Registrarse',
-                colorButton: const Color.fromARGB(255, 34, 184, 197),
-                width: 0.7,
-                height: 50,
-              ),
-              const SizedBox(height: 30),
-
-              // Texto de "olvidaste tu contraseña"
-              Text(
-                '¿Olvidaste tu contraseña?',
-                style: TextStyle(
-                  fontSize: size.height * 0.02,
-                  fontFamily: 'Sansita',
-                ),
-              ),
-            ],
-          ),
+            ),
         ),
       ),
     );
+  }
+
+  void onTap() {
+    // Código para generar el evento
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const RecuperarPwScreen1()));
   }
 }
