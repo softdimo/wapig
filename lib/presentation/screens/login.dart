@@ -82,29 +82,17 @@ class _LoginScreenState extends State<LoginScreen> {
                    * Clase que retorna un input completamente genérico. 
                    */
                 const InputGeneric(
-                  width: 0.8,
-                  height: 0.06,
                   fontSizeText: 20,
                   textHint: 'E-mail',
-                  borderColor: Color.fromARGB(204, 173, 173, 178),
-                  borderRadius: 30,
                   iconType: Icons.email,
-                  colorIcon: Color.fromARGB(204, 173, 173, 178),
-                  colorText: Color.fromARGB(204, 173, 173, 178)
                 ),
         
                 const SizedBox(height: 20),
         
                 const InputGenericPassword(
-                  width: 0.8,
-                  height: 0.06,
                   fontSizeText: 20,
                   textHint: 'Contraseña',
-                  borderColor: Color.fromARGB(204, 173, 173, 178),
-                  borderRadius: 30,
                   iconType: Icons.lock,
-                  colorIcon: Color.fromARGB(204, 173, 173, 178),
-                  colorText: Color.fromARGB(204, 173, 173, 178)
                 ),
         
                 const SizedBox(height: 30),
