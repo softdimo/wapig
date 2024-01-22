@@ -36,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: Colors.white,
+              border: Border.all(color: const Color.fromARGB(204, 173, 173, 178))
             ),
             //alignment: Alignment.bottomCenter,
             child: Column(
