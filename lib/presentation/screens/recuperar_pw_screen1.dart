@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/recuperar_pw_screen2.dart';
+import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
+import 'package:wapig/presentation/widgets/input_generic/input_generic_password.dart';
 import 'package:wapig/presentation/widgets/single_button/single_button.dart';
 
 class RecuperarPwScreen1 extends StatefulWidget {
@@ -88,9 +90,11 @@ class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
                     fontWeight: FontWeight.bold),
               ),
 
-              const SizedBox(height: 30),
+              // =====================================
 
-              // =================================================
+              const SizedBox(height: 10),
+
+              // =====================================
 
               const Text(
                 'No te preocupes, enviaremos un código a tu email registrado.',
@@ -100,22 +104,40 @@ class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
                     fontWeight: FontWeight.normal),
               ),
               
+              // =====================================
+              
               const SizedBox(height: 30),
 
+              // =====================================
+              
               // Inputs
-              SizedBox(
-                width: size.width * 0.8,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    labelText: 'Correo electrónico',
-                  ),
-                  style: TextStyle(
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Sansita',
-                  ),
-                ),
+              const InputGeneric(
+                fontSizeText: 20, 
+                textHint: 'Correo electrónico',
+                width: 0.8,
+                height: 0.06,
               ),
+
+              // =====================================
+
               const SizedBox(height: 30),
+
+              // =====================================
+
+              // Inputs
+              // SizedBox(
+              //   width: size.width * 0.8,
+              //   child: TextField(
+              //     decoration: const InputDecoration(
+              //       labelText: 'Correo electrónico',
+              //     ),
+              //     style: TextStyle(
+              //       fontSize: size.height * 0.02,
+              //       fontFamily: 'Sansita',
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(height: 30),
 
               // =====================================
 
