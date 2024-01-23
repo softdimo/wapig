@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
+import 'package:wapig/presentation/widgets/input_generic/input_generic_password.dart';
 import 'package:wapig/presentation/widgets/single_button/single_button.dart';
 
 class RecuperarPwScreen2 extends StatefulWidget {
@@ -58,24 +60,7 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
               ),
               const SizedBox(height: 20),
 
-              // Llamado a la clase botones. Devuelve un Row con dos botones
-              // Los botones se alinean horizontalmente
-              // ButtonsRow(
-              //   onPressed1: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(builder: (context) => const LoginScreen()),
-              //     );
-              //   },
-              //   onPressed2: () {},
-              //   textButton1: 'Iniciar sesión',
-              //   textButton2: 'Registrarse',
-              //   colorButton1: const Color.fromARGB(255, 34, 184, 197),
-              //   colorButton2: const Color.fromARGB(204, 173, 173, 178),
-              //   spacing: 10,
-              //   width: 0.4,
-              //   height: 50,
-              // ),
+              // =================================================
 
               const Text(
                 'Recupera tu contraseña',
@@ -99,46 +84,59 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
 
               // ============================
               
-              const SizedBox(height: 10),
+              const SizedBox(height: 30),
 
               // ============================
 
               // Inputs
-              SizedBox(
-                width: size.width * 0.8,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    labelText: 'Correo electrónico',
-                  ),
-                  style: TextStyle(
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Sansita',
-                  ),
-                ),
+              const InputGeneric(
+                fontSizeText: 20, 
+                textHint: 'Ingrese código',
+                width: 0.8,
+                height: 0.06,
+                iconType: Icons.emergency,
               ),
               
               // ============================
               
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
 
               // ============================
 
-              SizedBox(
-                width: size.width * 0.8,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    labelText: 'Nueva Contraseña',
-                  ),
-                  style: TextStyle(
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Sansita',
-                  ),
-                ),
+              const InputGeneric(
+                fontSizeText: 20, 
+                textHint: 'Correo electrónico',
+                width: 0.8,
+                height: 0.06,
               ),
+              
+              // ============================
+              
+              const SizedBox(height: 20),
 
               // ============================
               
-              const SizedBox(height: 10),
+              const InputGenericPassword(
+                fontSizeText: 20,
+                textHint: 'Contraseña',
+                iconType: Icons.lock,
+              ),
+              
+              // ============================
+
+              const SizedBox(height: 20),
+
+              // ============================
+
+              const InputGenericPassword(
+                fontSizeText: 20,
+                textHint: 'Confirmar Contraseña',
+                iconType: Icons.lock,
+              ),
+              
+              // ============================
+
+              const SizedBox(height: 20),
 
               // ============================
 
