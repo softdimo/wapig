@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:wapig/presentation/screens/login.dart';
 import 'package:wapig/presentation/screens/recuperar_pw_screen2.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic_password.dart';
@@ -121,26 +123,57 @@ class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
               const SizedBox(height: 30),
 
               // =====================================
-
+              
               // Texto de "ya tienes tu contraseña"
-              Text(
-                '¿Ya tienes tu contraseña?',
-                style: TextStyle(
-                  fontSize: size.height * 0.02,
-                  fontFamily: 'Sansita',
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                    fontSize: size.height * 0.02,
+                    fontFamily: 'Sansita',
+                    color: Colors.black, // Color por defecto para el texto
+                  ),
+                  children: [
+                    const TextSpan(
+                      text: 'Haz ',
+                    ),
+                    TextSpan(
+                      text: 'click aquí',
+                      style: const TextStyle(
+                        color: Colors.blue, // Color azul para "click aquí"
+                      ),
+                      recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const LoginScreen()),
+                        );
+                      },
+                    ),
+                    const TextSpan(
+                      text: ' para iniciar sesión',
+                    ),
+                  ],
                 ),
-              ),
+              )
+
+              // Text(
+              //   '¿Ya tienes tu contraseña?',
+              //   style: TextStyle(
+              //     fontSize: size.height * 0.02,
+              //     fontFamily: 'Sansita',
+              //   ),
+              // ),
 
               // =====================================
 
               // Texto de "Haz click aquí para iniciar sesión"
-              Text(
-                'Haz click aquí para iniciar sesión',
-                style: TextStyle(
-                  fontSize: size.height * 0.02,
-                  fontFamily: 'Sansita',
-                ),
-              ),
+              // Text(
+              //   'Haz click aquí para iniciar sesión',
+              //   style: TextStyle(
+              //     fontSize: size.height * 0.02,
+              //     fontFamily: 'Sansita',
+              //   ),
+              // ),
             ],
           ),
         ),
