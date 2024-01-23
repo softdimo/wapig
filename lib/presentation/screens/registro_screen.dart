@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/login.dart';
 import 'package:wapig/presentation/widgets/buttons/buttons.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
+import 'package:wapig/presentation/widgets/input_generic/input_generic_password.dart';
 import 'package:wapig/presentation/widgets/single_button/single_button.dart';
 
 class RegistroScreen extends StatefulWidget {
@@ -85,7 +86,11 @@ class _RegistroScreenState extends State<RegistroScreen> {
                   height: 50,
                 ),
 
+                // =====================================
+
                 const SizedBox(height: 30),
+
+                // =====================================
 
                 // Inputs
                 const InputGeneric(
@@ -97,34 +102,30 @@ class _RegistroScreenState extends State<RegistroScreen> {
 
                 // =====================================
 
-                SizedBox(
-                  width: size.width * 0.8,
-                  child: TextField(
-                    decoration: const InputDecoration(
-                      labelText: 'Contraseña',
-                    ),
-                    style: TextStyle(
-                      fontSize: size.height * 0.02,
-                      fontFamily: 'Sansita',
-                    ),
-                  ),
-                ),
-                // const SizedBox(height: 30),
+                const SizedBox(height: 30),
 
                 // =====================================
 
-                SizedBox(
-                  width: size.width * 0.8,
-                  child: TextField(
-                    decoration: const InputDecoration(
-                      labelText: 'Confirmar Contraseña',
-                    ),
-                    style: TextStyle(
-                      fontSize: size.height * 0.02,
-                      fontFamily: 'Sansita',
-                    ),
-                  ),
+                const InputGenericPassword(
+                  fontSizeText: 20,
+                  textHint: 'Contraseña',
+                  iconType: Icons.lock,
                 ),
+                
+                // =====================================
+
+                const SizedBox(height: 30),
+
+                // =====================================
+
+                const InputGenericPassword(
+                  fontSizeText: 20,
+                  textHint: 'Confirmar Contraseña',
+                  iconType: Icons.lock,
+                ),
+                
+                // =====================================
+
                 const SizedBox(height: 30),
 
                 // =====================================
