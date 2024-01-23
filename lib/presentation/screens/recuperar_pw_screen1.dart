@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/login.dart';
 import 'package:wapig/presentation/screens/recuperar_pw_screen2.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
-import 'package:wapig/presentation/widgets/input_generic/input_generic_password.dart';
 import 'package:wapig/presentation/widgets/single_button/single_button.dart';
 
 class RecuperarPwScreen1 extends StatefulWidget {

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/login.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic_password.dart';
+import 'package:wapig/presentation/widgets/logo_image/logo_image.dart';
 import 'package:wapig/presentation/widgets/single_button/single_button.dart';
 import 'package:flutter/gestures.dart';
+import 'package:wapig/presentation/widgets/title_text/title_name.dart';
 
 class RecuperarPwScreen2 extends StatefulWidget {
   const RecuperarPwScreen2({super.key});
@@ -24,7 +26,7 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
         // padding: const EdgeInsets.fromLTRB(30, 80, 30, 30),
         padding: EdgeInsetsGeometry.lerp(
           EdgeInsets.zero,
-          EdgeInsets.fromLTRB(25, size.width * 0.90, 25, size.width * 0.20), 0.4,
+          EdgeInsets.fromLTRB(25, size.width * 0.70, 25, size.width * 0.20), 0.4,
         )!,
 
         // ==========================================================
@@ -37,56 +39,44 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
           alignment: Alignment.bottomCenter,
           child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.fromLTRB(0, 30, 0, 30),
-                child: const Text(
-                  'Bienvenido',
-                  style: TextStyle(
-                      fontFamily: 'Sansita',
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
-                ),
+              const TitleName(
+                paddingTop: 0,
+                paddingBottom: 0,
               ),
               // Logo
-              Image.asset(
-                'assets/images/logoWapig.png',
-                width: size.width * 0.4,
-                height: size.width * 0.4,
-              ),
-              const Text(
-                'wapig',
-                style: TextStyle(
-                    fontFamily: 'Sansita',
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 20),
-
-              // =================================================
-
-              const Text(
-                'Recupera tu contraseña',
-                style: TextStyle(
-                    fontFamily: 'Sansita',
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-              ),
-
+              const LogoImage(width: 0.3),
+              
+              const TitleName(
+                welcomeText: 'wapig',
+                  paddingTop: 0,
+                  paddingBottom: 0,
+                  fontSize: 36,
+                ),
               const SizedBox(height: 10),
 
               // =================================================
 
-              const Text(
-                'Digita el código que fue enviado a tu dirección de correo electrónico',
-                style: TextStyle(
-                    fontFamily: 'Sansita',
-                    fontSize: 14,
-                    fontWeight: FontWeight.normal),
-              ),
+              const TitleName(
+                welcomeText: 'Recuperar contraseña',
+                  paddingTop: 0,
+                  paddingBottom: 0,
+                  fontSize: 20,
+                ),
+
+              const SizedBox(height: 10),
+
+              // =================================================
+              const TitleName(
+                welcomeText: 'Digita el código que fue enviado a tu dirección de correo electrónico',
+                  paddingTop: 0,
+                  paddingBottom: 0,
+                  paddingLeft: 20,
+                  fontSize: 14,
+                ),
 
               // ============================
               
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
 
               // ============================
 
@@ -138,8 +128,6 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
               
               // ============================
 
-              const SizedBox(height: 20),
-
               // ============================
 
               const SizedBox(height: 20),
@@ -154,18 +142,17 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
                 width: 0.7,
                 height: 50,
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 10),
 
               // =====================================
 
               // Texto de "ya tienes tu contraseña"
-              Text(
-                '¿Ya tienes tu contraseña?',
-                style: TextStyle(
-                  fontSize: size.height * 0.02,
-                  fontFamily: 'Sansita',
+              const TitleName(
+                welcomeText: '¿Ya tienes tu contraseña?',
+                  paddingTop: 0,
+                  paddingBottom: 0,
+                  fontSize: 19,
                 ),
-              ),
 
               RichText(
                 text: TextSpan(
@@ -195,8 +182,12 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
                       text: ' para iniciar sesión',
                     ),
                   ],
+                  
                 ),
-              )
+              ),
+
+              const SizedBox(height: 10),
+
             ],
           ),
         ),
