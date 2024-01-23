@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:wapig/presentation/screens/login.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic_password.dart';
 import 'package:wapig/presentation/widgets/single_button/single_button.dart';
+import 'package:flutter/gestures.dart';
 
 class RecuperarPwScreen2 extends StatefulWidget {
   const RecuperarPwScreen2({super.key});
@@ -165,16 +167,36 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
                 ),
               ),
 
-              // =====================================
-
-              // Texto de "Haz click aquí para iniciar sesión"
-              Text(
-                'Haz click aquí para iniciar sesión',
-                style: TextStyle(
-                  fontSize: size.height * 0.02,
-                  fontFamily: 'Sansita',
+              RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                    fontSize: size.height * 0.02,
+                    fontFamily: 'Sansita',
+                    color: Colors.black, // Color por defecto para el texto
+                  ),
+                  children: [
+                    const TextSpan(
+                      text: 'Haz ',
+                    ),
+                    TextSpan(
+                      text: 'click aquí',
+                      style: const TextStyle(
+                        color: Colors.blue, // Color azul para "click aquí"
+                      ),
+                      recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const LoginScreen()),
+                        );
+                      },
+                    ),
+                    const TextSpan(
+                      text: ' para iniciar sesión',
+                    ),
+                  ],
                 ),
-              ),
+              )
             ],
           ),
         ),
