@@ -18,7 +18,7 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 169, 242, 248),
-      body: Padding(
+      body: SingleChildScrollView(
         // padding: const EdgeInsets.fromLTRB(30, 80, 30, 30),
         padding: EdgeInsetsGeometry.lerp(
           EdgeInsets.zero,
@@ -140,21 +140,6 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
 
               // ============================
 
-              SizedBox(
-                width: size.width * 0.8,
-                child: TextField(
-                  decoration: const InputDecoration(
-                    labelText: 'Confirmar Contraseña',
-                  ),
-                  style: TextStyle(
-                    fontSize: size.height * 0.02,
-                    fontFamily: 'Sansita',
-                  ),
-                ),
-              ),
-              
-              // ============================
-              
               const SizedBox(height: 20),
 
               // ============================

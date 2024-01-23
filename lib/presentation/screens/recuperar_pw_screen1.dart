@@ -19,7 +19,7 @@ class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 169, 242, 248),
-      body: Padding(
+      body: SingleChildScrollView(
         // padding: const EdgeInsets.fromLTRB(30, 80, 30, 30),
         padding: EdgeInsetsGeometry.lerp(
           EdgeInsets.zero,
