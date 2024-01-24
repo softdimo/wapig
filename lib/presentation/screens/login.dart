@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/accion_cuenta_screen.dart';
+import 'package:wapig/presentation/screens/home_screen.dart';
 import 'package:wapig/presentation/screens/recuperar_pw_screen1.dart';
 import 'package:wapig/presentation/screens/registro_screen.dart';
 import 'package:wapig/presentation/widgets/buttons/buttons.dart';
@@ -105,7 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const AccionCuentaScreen()),
+                        builder: (context) => const HomeScreen()),
                     );
                   },
                   textButton: 'Iniciar sesión',
@@ -117,18 +118,19 @@ class _LoginScreenState extends State<LoginScreen> {
         
                 // Hay que trabajar en esta funcionalidad del texto para navegar a la pantalla de recuperación
                 TitleName(
-                    welcomeText: '¿Olvidaste tu contraseña?',
-                    fontSize: 18,
-                    paddingTop: 0,
-                    paddingBottom: 10,
-                    isUnderLined: true,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const RecuperarPwScreen1()),
-                      );
-                    }),
+                  welcomeText: '¿Olvidaste tu contraseña?',
+                  fontSize: 18,
+                  paddingTop: 0,
+                  paddingBottom: 10,
+                  isUnderLined: true,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RecuperarPwScreen1()),
+                    );
+                  }
+                ),
               ],
             ),
           ),
