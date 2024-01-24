@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wapig/presentation/screens/accion_cuenta_screen.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -19,18 +21,20 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Container(
             height: size.height * 0.2, // El 50% superior
-            // color: const Color.fromARGB(255, 94, 113, 1), // Color superior
-            // color: const Color(0x195E71), // Color superior
             color: const Color.fromRGBO(25, 94, 113, 1.0), // Color superior
+            child: Center(
+              child: Text(
+                'Este es el HOME',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
           ),
           Container(
             height: size.height * 0.8, // El 50% inferior
-            // color: const Color.fromARGB(160, 159, 159, 255), // Color inferior
             color: const Color.fromRGBO(160, 159, 159, 1.0), // Color inferior
             child: Center(
-              
               child: Text(
-                'cuentas',
+                'Acciones cuentas',
                 style: TextStyle(color: Colors.black),
               ),
             ),
@@ -40,6 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+// AccionCuentaScreen
 
 
 

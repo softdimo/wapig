@@ -18,16 +18,11 @@ class _AccionCuentaScreenState extends State<AccionCuentaScreen> {
         children: [
           Container(
             height: size.height * 0.2, // El 50% superior
-            // color: const Color.fromARGB(255, 94, 113, 1), // Color superior
-            // color: const Color(0x195E71), // Color superior
             color: const Color.fromRGBO(25, 94, 113, 1.0), // Color superior
           ),
           Container(
             height: size.height * 0.8, // El 50% inferior
-            // color: const Color.fromARGB(160, 159, 159, 255), // Color inferior
-            color: const Color.fromRGBO(160, 159, 159, 1.0), // Color inferior
             child: Center(
-              // Puedes agregar tus widgets aquí
               child: Text(
                 'Contenido de la pantalla',
                 style: TextStyle(color: Colors.black),
@@ -38,10 +33,4 @@ class _AccionCuentaScreenState extends State<AccionCuentaScreen> {
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: AccionCuentaScreen(),
-  ));
 }
