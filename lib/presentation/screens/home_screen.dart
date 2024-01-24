@@ -20,9 +20,9 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           Container(
-            height: size.height * 0.2, // El 50% superior
+            height: size.height * 0.2, // El 20% superior
             color: const Color.fromRGBO(25, 94, 113, 1.0), // Color superior
-            child: Center(
+            child: const Center(
               child: Text(
                 'Este es el HOME',
                 style: TextStyle(color: Colors.white),
@@ -30,11 +30,18 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Container(
-            height: size.height * 0.8, // El 50% inferior
+            height: size.height * 0.8, // El 80% inferior
             color: const Color.fromRGBO(160, 159, 159, 1.0), // Color inferior
-            child: Center(
-              child: Text(
-                'Acciones cuentas',
+            child: ElevatedButton(
+              onPressed: () {
+                // Navegar a la pantalla AccionCuentaScreen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AccionCuentaScreen()),
+                );
+              },
+              child: const Text(
+                'lleva a Screen Acciones cuentas',
                 style: TextStyle(color: Colors.black),
               ),
             ),
@@ -44,8 +51,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-// AccionCuentaScreen
-
-
-

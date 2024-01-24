@@ -24,7 +24,7 @@ class _AccionCuentaScreenState extends State<AccionCuentaScreen> {
             height: size.height * 0.8, // El 50% inferior
             child: Center(
               child: Text(
-                'Contenido de la pantalla',
+                'Screen pantalla de acciones de cada cuenta',
                 style: TextStyle(color: Colors.black),
               ),
             ),
