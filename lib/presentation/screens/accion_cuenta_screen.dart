@@ -1,30 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// // ==================================================
-// // ==================================================
-
-// class AccionCuentaScreen extends StatefulWidget {
-//   const AccionCuentaScreen({super.key});
-
-//   @override
-//   _AccionCuentaScreenState createState() => _AccionCuentaScreenState();
-// }
-
-// // ==================================================
-// // ==================================================
-
-// class _AccionCuentaScreenState extends State<AccionCuentaScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     // Obtener las dimensiones de la pantalla
-//     final size = MediaQuery.of(context).size;
-
-//     return Scaffold(
-//       backgroundColor: const Color.fromARGB(255, 94, 113, 200),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 
 class AccionCuentaScreen extends StatefulWidget {

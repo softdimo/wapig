@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wapig/presentation/widgets/title_text/title_name.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
