@@ -49,7 +49,7 @@ class _AccionCuentaScreenState extends State<AccionCuentaScreen> {
           ),
           Container(
             height: size.height * 0.8, // El 50% inferior
-            color: const Color.fromARGB(196, 196, 196, 255), // Color inferior
+            color: const Color.fromARGB(160, 159, 159, 255), // Color inferior
             child: Center(
               // Puedes agregar tus widgets aquí
               child: Text(
