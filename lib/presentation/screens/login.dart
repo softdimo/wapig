@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:wapig/presentation/screens/accion_cuenta_screen.dart';
 import 'package:wapig/presentation/screens/recuperar_pw_screen1.dart';
 import 'package:wapig/presentation/screens/registro_screen.dart';
 import 'package:wapig/presentation/widgets/buttons/buttons.dart';
@@ -100,7 +101,13 @@ class _LoginScreenState extends State<LoginScreen> {
         
                 // Botón de inicio de sesión
                 SingleButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const AccionCuentaScreen()),
+                    );
+                  },
                   textButton: 'Iniciar sesión',
                   colorButton: const Color.fromARGB(255, 34, 184, 197),
                   width: 0.7,
