@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:wapig/presentation/screens/home_screen.dart';
 import 'package:wapig/presentation/screens/logos_welcome.dart';
 import 'package:wapig/presentation/screens/login.dart'; // Assuming renamed
 
@@ -17,14 +18,14 @@ class _ScreenWelcomeState extends State<ScreenWelcome> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer(const Duration(seconds: 3), () {
+    _timer = Timer(const Duration(seconds: 1), () {//*********** Modificar anter de versionar *********** */
       _timer = null;
       setState(() {
         _isLoading = false;
       });
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const LoginScreen()),
+        MaterialPageRoute(builder: (context) => const MyHomePage()),//*********** Modificar anter de versionar con LoginScreen() *********** */
       );
     });
   }
