@@ -19,9 +19,10 @@ class _CuentasScreenState extends State<CuentasScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Pantalla de cuentas',
+          'Resumen Cuentas',
           style: TextStyle(color: Colors.white),
         ),
+        centerTitle: true,
         backgroundColor: const Color.fromARGB(255, 8, 176, 223),
         iconTheme: const IconThemeData(
           color: Colors.white,
@@ -51,7 +52,7 @@ class _CuentasScreenState extends State<CuentasScreen> {
                 child: Column(
                   children: [
                     TitleName(
-                      welcomeText: 'Cuenta personal',
+                      welcomeText: 'Bancolombia',
                       fontSize: 20,
                       paddingTop: 0,
                       paddingBottom: 10,
