@@ -18,14 +18,14 @@ class _ScreenWelcomeState extends State<ScreenWelcome> {
   @override
   void initState() {
     super.initState();
-    _timer = Timer(const Duration(seconds: 1), () {//*********** Modificar anter de versionar *********** */
+    _timer = Timer(const Duration(seconds: 3), () {
       _timer = null;
       setState(() {
         _isLoading = false;
       });
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const MyHomePage()),//*********** Modificar anter de versionar con LoginScreen() *********** */
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
       );
     });
   }
