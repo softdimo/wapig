@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/accion_cuenta_screen.dart';
+import 'package:wapig/presentation/screens/cuentas_screen.dart';
 import 'package:wapig/presentation/widgets/single_button/single_button.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
 import 'side_menu.dart';
@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const AccionCuentaScreen()),
+                          builder: (context) => const CuentasScreen()),
                     );
                   }
                 ),
