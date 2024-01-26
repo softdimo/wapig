@@ -29,9 +29,7 @@ class _AccionCuentaScreenState extends State<AccionCuentaScreen> {
         ),
         
       ),
-      drawer: SideMenu(
-        onItemSelected: onItemSelected,
-      ),
+      drawer: const SideMenu(),
       body: Container(
         padding: EdgeInsets.only(top: size.height * 0.01),
         child: Align(

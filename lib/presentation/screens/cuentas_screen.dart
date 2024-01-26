@@ -29,9 +29,7 @@ class _CuentasScreenState extends State<CuentasScreen> {
         ),
         
       ),
-      drawer: SideMenu(
-        onItemSelected: onItemSelected,
-      ),
+      drawer: const SideMenu(),
       // =====================================================
       body: Container(
         padding: EdgeInsets.only(top: size.height * 0.01),
@@ -73,23 +71,6 @@ class _CuentasScreenState extends State<CuentasScreen> {
       ),
       // =====================================================
     );
-  }
-
-  // =======================================================
-
-  void onItemSelected(int index) {
-    if (index == 0) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const MyHomePage()),
-      );
-    } else if (index == 1) {
-      // Navegar a la pantalla de perfil
-      // Implementa la navegación a la pantalla de perfil aquí
-    } else if (index == 2) {
-      // Navegar a la pantalla de configuración
-      // Implementa la navegación a la pantalla de configuración aquí
-    }
   }
 }
 

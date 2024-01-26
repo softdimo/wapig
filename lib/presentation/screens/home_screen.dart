@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/cuentas_screen.dart';
-import 'package:wapig/presentation/widgets/single_button/single_button.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
 import 'side_menu.dart';
 
@@ -28,12 +27,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(80),
-          child: Text('Aquí va el consolidado', style: TextStyle(color: Colors.white, fontSize: 20)),
+          child: Text('Aquí va el consolidado',
+              style: TextStyle(color: Colors.white, fontSize: 20)),
         ),
       ),
-      drawer: SideMenu(
-        onItemSelected: onItemSelected,
-      ),
+      drawer: const SideMenu(),
       body: Container(
         padding: EdgeInsets.only(top: size.height * 0.01),
         child: Align(
@@ -42,9 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
                 color: Colors.white,
-                border:
-                    Border.all(color: const Color.fromARGB(204, 173, 173, 178))
-            ),
+                border: Border.all(
+                    color: const Color.fromARGB(204, 173, 173, 178))),
             height: size.height * 0.2,
             width: size.width * 0.9,
             child: Column(
@@ -68,20 +65,5 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
-  }
-
-  void onItemSelected(int index) {
-    if (index == 0) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const MyHomePage()),
-      );
-    } else if (index == 1) {
-      // Navegar a la pantalla de perfil
-      // Implementa la navegación a la pantalla de perfil aquí
-    } else if (index == 2) {
-      // Navegar a la pantalla de configuración
-      // Implementa la navegación a la pantalla de configuración aquí
-    }
   }
 }

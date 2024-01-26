@@ -1,55 +1,34 @@
 import 'package:flutter/material.dart';
-class SideMenu extends StatefulWidget {
-  final Function(int index) onItemSelected; // Agrega un parámetro para la función
+import 'package:wapig/presentation/widgets/side_menu_item/side_menu_item.dart';
 
-  const SideMenu({super.key, required this.onItemSelected}); // Requiere el parámetro
+class SideMenu extends StatefulWidget {
+
+  const SideMenu({
+    super.key
+  }); 
 
   @override
+  // ignore: library_private_types_in_public_api
   _SideMenuState createState() => _SideMenuState();
 }
 
 class _SideMenuState extends State<SideMenu> {
   int _currentSelectedItem = 0;
-@override
+  @override
   Widget build(BuildContext context) {
-  final List<ListTile> items = [
-    ListTile(
-      title: const Text('Vista principal'),
-      onTap: () {
-        setState(() {
-          _currentSelectedItem = 0;
-        });
-      },
-    ),
-    ListTile(
-      title: const Text('Perfil', ),
-      onTap: () {
-        setState(() {
-          _currentSelectedItem = 1;
-        });
-      },
-    ),
-    ListTile(
-      title: const Text('Configuración'),
-      onTap: () {
-        setState(() {
-          _currentSelectedItem = 2;
-        });
-      },
-    ),
-  ];
+    final List<ListTile> items = SideMenuItems.getItems();
 
-  
     return Drawer(
       child: ListView(
         children: [
           const DrawerHeader(
+            //padding: EdgeInsets.only(top: 0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CircleAvatar(
                   radius: 50,
-                  backgroundImage: AssetImage('assets/images/logoWapig.png'),
+                  backgroundImage: AssetImage('assets/images/perfil.png'),
                 ),
                 SizedBox(height: 10),
                 Text('Pablo Lara'),
@@ -58,10 +37,14 @@ class _SideMenuState extends State<SideMenu> {
           ),
           for (int i = 0; i < items.length; i++)
             ListTile(
+              leading: items[i].leading,
               title: items[i].title,
               selected: i == _currentSelectedItem,
               onTap: () {
-                widget.onItemSelected(i); // Llama a la función desde la propiedad widget
+                setState(() {
+                  _currentSelectedItem = i;
+                });
+                SideMenuItems.handleItemSelected(context, i);
               },
             ),
         ],
