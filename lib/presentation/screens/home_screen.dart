@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/cuentas_screen.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
+import 'package:wapig/services/consolidated/consolidated_service.dart';
 import 'side_menu.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -26,10 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
           size: 35,
         ),
         bottom: const PreferredSize(
-          preferredSize: Size.fromHeight(80),
-          child: Text('Aquí va el consolidado',
-              style: TextStyle(color: Colors.white, fontSize: 20)),
-        ),
+            preferredSize: Size.fromHeight(115), child: ConsolidatedService()),
       ),
       drawer: const SideMenu(),
       body: Container(
@@ -47,18 +45,17 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               children: [
                 TitleName(
-                  welcomeText: 'Cuentas',
-                  fontSize: 25,
-                  paddingTop: 0,
-                  paddingBottom: 10,
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const CuentasScreen()),
-                    );
-                  }
-                ),
+                    welcomeText: 'Cuentas',
+                    fontSize: 25,
+                    paddingTop: 0,
+                    paddingBottom: 10,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CuentasScreen()),
+                      );
+                    }),
               ],
             ),
           ),

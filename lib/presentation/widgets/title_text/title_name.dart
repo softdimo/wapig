@@ -9,18 +9,23 @@ class TitleName extends StatelessWidget {
   final double paddingBottom;
   final VoidCallback? onPressed;
   final bool isUnderLined;
+  final FontWeight typeText;
+  final bool isSansita;
+  final Color colorText;
 
-  const TitleName({
-    super.key, 
-    this.welcomeText = 'Bienvenido', 
-    this.fontSize = 22, 
-    this.paddingLeft = 0, 
-    this.paddingRight = 0, 
-    this.paddingTop = 30, 
-    this.paddingBottom = 30,
-    this.onPressed,
-    this.isUnderLined = false
-  });
+  const TitleName(
+      {super.key,
+      this.welcomeText = 'Bienvenido',
+      this.fontSize = 22,
+      this.paddingLeft = 0,
+      this.paddingRight = 0,
+      this.paddingTop = 30,
+      this.paddingBottom = 30,
+      this.onPressed,
+      this.typeText = FontWeight.bold,
+      this.isSansita = true,
+      this.isUnderLined = false,
+      this.colorText = Colors.black});
 
   @override
   Widget build(BuildContext context) {
@@ -28,19 +33,17 @@ class TitleName extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         padding: EdgeInsets.fromLTRB(
-          paddingLeft, 
-          paddingTop, 
-          paddingRight, 
-          paddingBottom
-        ),
+            paddingLeft, paddingTop, paddingRight, paddingBottom),
         child: Text(
           welcomeText,
           style: TextStyle(
-              fontFamily: 'Sansita', 
-              fontSize: fontSize, 
-              fontWeight: FontWeight.bold,
-              decoration: isUnderLined ? TextDecoration.underline : TextDecoration.none
-            ),
+              color: colorText,
+              fontFamily: isSansita ? 'Sansita' : '',
+              fontSize: fontSize,
+              fontWeight: typeText,
+              decoration: isUnderLined
+                  ? TextDecoration.underline
+                  : TextDecoration.none),
         ),
       ),
     );
