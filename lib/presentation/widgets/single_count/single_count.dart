@@ -15,24 +15,22 @@ class SingleCount extends StatelessWidget {
   final Color colorIcon;
   final IconData iconType;
 
-  const SingleCount(
-      {
-        super.key,
-        this.accountName = 'Cuenta',
-        this.fontSize = 22,
-        this.paddingLeft = 0,
-        this.paddingRight = 0,
-        this.paddingTop = 30,
-        this.paddingBottom = 30,
-        this.onPressed,
-        this.typeText = FontWeight.bold,
-        this.isSansita = true,
-        this.colorText = Colors.black,
-        // this.isUnderLined = false,
-        this.iconType = Icons.email,
-        this.colorIcon = const Color.fromARGB(204, 173, 173, 178),
-      }
-    );
+  const SingleCount({
+    super.key,
+    this.accountName = 'Cuenta',
+    this.fontSize = 22,
+    this.paddingLeft = 0,
+    this.paddingRight = 0,
+    this.paddingTop = 30,
+    this.paddingBottom = 30,
+    this.onPressed,
+    this.typeText = FontWeight.bold,
+    this.isSansita = true,
+    this.colorText = Colors.black,
+    // this.isUnderLined = false,
+    required this.iconType,
+    this.colorIcon = const Color.fromARGB(204, 173, 173, 178),
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,21 +39,29 @@ class SingleCount extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.fromLTRB(
             paddingLeft, paddingTop, paddingRight, paddingBottom),
-        child: Text(
-          accountName,
-          style: TextStyle(
-              color: colorText,
-              fontFamily: isSansita ? 'Sansita' : '',
-              fontSize: fontSize,
-              fontWeight: typeText,
-              // prefixIcon: Icon(
-              //   iconType,
-              //   color: colorIcon,
-              // ),
-              // decoration: isUnderLined
-              //     ? TextDecoration.underline
-              //     : TextDecoration.none
+        child: Row(
+          //mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Icon(iconType),
+            Text(
+              accountName,
+              style: TextStyle(
+                  color: colorText,
+                  fontFamily: isSansita ? 'Sansita' : '',
+                  fontSize: fontSize,
+                  fontWeight: typeText,
+                  /* prefixIcon: Icon(
+                    iconType,
+                    color: colorIcon,
+                  ), */
+                  
+                  /* decoration: isUnderLined
+                      ? TextDecoration.underline
+                      : TextDecoration.none */
+              ),
+              
             ),
+          ],
         ),
       ),
     );

@@ -81,6 +81,7 @@ class _CuentasScreenState extends State<CuentasScreen> {
                         Container(
                           padding: EdgeInsets.only(right: size.width * 0.1),
                           child: SingleCount(
+                              iconType: Icons.mail,
                               accountName: '2.081.275',
                               colorText: const Color.fromRGBO(20, 176, 27, 1),
                               fontSize: 18,
@@ -110,6 +111,7 @@ class _CuentasScreenState extends State<CuentasScreen> {
                         Container(
                           padding: EdgeInsets.only(right: size.width * 0.1),
                           child: SingleCount(
+                              iconType: Icons.mail,
                               accountName: '0',
                               colorText: const Color.fromRGBO(20, 176, 27, 1),
                               fontSize: 18,
