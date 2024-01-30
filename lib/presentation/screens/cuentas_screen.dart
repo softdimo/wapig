@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/home_screen.dart';
 import 'package:wapig/presentation/screens/side_menu.dart';
+import 'package:wapig/presentation/widgets/single_count/single_count.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
 
 class CuentasScreen extends StatefulWidget {
@@ -43,7 +44,7 @@ class _CuentasScreenState extends State<CuentasScreen> {
                     borderRadius: BorderRadius.circular(30),
                     color: Colors.white,
                     border:
-                        Border.all(color: const Color.fromARGB(204, 173, 173, 178))
+                        Border.all(color: const Color.fromARGB(196, 196, 196, 1))
                 ),
                 height: size.height * 0.2,
                 width: size.width * 0.9,
@@ -61,6 +62,64 @@ class _CuentasScreenState extends State<CuentasScreen> {
                               builder: (context) => const AccionCuentaScreen()),
                         ); */
                       }
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(left: size.width * 0.1),
+                          child: SingleCount(
+                              iconType: Icons.lock,
+                              accountName: 'Bancolombia:',
+                              fontSize: 18,
+                              paddingTop: 0,
+                              paddingBottom: 0,
+                              typeText: FontWeight.normal,
+                              // isSansita: false,
+                              onPressed: () {}),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(right: size.width * 0.1),
+                          child: SingleCount(
+                              accountName: '2.081.275',
+                              colorText: const Color.fromRGBO(20, 176, 27, 1),
+                              fontSize: 18,
+                              paddingTop: 0,
+                              paddingBottom: 0,
+                              typeText: FontWeight.normal,
+                              isSansita: false,
+                              onPressed: () {}),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(left: size.width * 0.1),
+                          child: SingleCount(
+                              iconType: Icons.lock,
+                              accountName: 'Billetera:',
+                              fontSize: 18,
+                              paddingTop: 0,
+                              paddingBottom: 0,
+                              typeText: FontWeight.normal,
+                              isSansita: false,
+                              onPressed: () {}),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(right: size.width * 0.1),
+                          child: SingleCount(
+                              accountName: '0',
+                              colorText: const Color.fromRGBO(20, 176, 27, 1),
+                              fontSize: 18,
+                              paddingTop: 0,
+                              paddingBottom: 0,
+                              typeText: FontWeight.normal,
+                              isSansita: false,
+                              onPressed: () {}),
+                        ),
+                      ],
                     ),
                   ],
                 ),
