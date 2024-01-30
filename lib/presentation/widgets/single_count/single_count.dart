@@ -13,7 +13,7 @@ class SingleCount extends StatelessWidget {
   final Color colorText;
   // final bool isUnderLined;
   final Color colorIcon;
-  final IconData iconType;
+  final IconData? iconType;
 
   const SingleCount({
     super.key,
@@ -28,8 +28,9 @@ class SingleCount extends StatelessWidget {
     this.isSansita = true,
     this.colorText = Colors.black,
     // this.isUnderLined = false,
-    required this.iconType,
     this.colorIcon = const Color.fromARGB(204, 173, 173, 178),
+    this.iconType,
+    // required IconData? iconType,
   });
 
   @override
@@ -50,10 +51,6 @@ class SingleCount extends StatelessWidget {
                   fontFamily: isSansita ? 'Sansita' : '',
                   fontSize: fontSize,
                   fontWeight: typeText,
-                  /* prefixIcon: Icon(
-                    iconType,
-                    color: colorIcon,
-                  ), */
                   
                   /* decoration: isUnderLined
                       ? TextDecoration.underline
