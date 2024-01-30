@@ -13,11 +13,14 @@ class SingleCount extends StatelessWidget {
   final Color colorText;
   // final bool isUnderLined;
   final Color colorIcon;
-  final IconData? iconType;
+  final IconData? iconType1;
+  final IconData? iconType2;
+  final IconData? iconType3;
+  final IconData? iconType4;
 
   const SingleCount({
     super.key,
-    this.accountName = 'Cuenta',
+    this.accountName = '',
     this.fontSize = 22,
     this.paddingLeft = 0,
     this.paddingRight = 0,
@@ -29,7 +32,10 @@ class SingleCount extends StatelessWidget {
     this.colorText = Colors.black,
     // this.isUnderLined = false,
     this.colorIcon = const Color.fromARGB(204, 173, 173, 178),
-    this.iconType,
+    this.iconType1,
+    this.iconType2,
+    this.iconType3,
+    this.iconType4,
     // required IconData? iconType,
   });
 
@@ -43,7 +49,10 @@ class SingleCount extends StatelessWidget {
         child: Row(
           //mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Icon(iconType),
+            Icon(iconType1),
+            Icon(iconType2),
+            Icon(iconType3),
+            Icon(iconType4),
             Text(
               accountName,
               style: TextStyle(
