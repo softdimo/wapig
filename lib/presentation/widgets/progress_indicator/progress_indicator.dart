@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-/// Esta debe ser una clase que se encargará de realizar 
-/// el cálculo del porcentaje para mostrárlo en la barra de progreso
 /// Esta clase debe recibir el porcentaje de (egresos / ingresos) * 100
+/// Debe recibir el porcentaje del saldo disponible para pintar la barra en verde
 class PercentageIndicatorBar extends StatelessWidget {
   const PercentageIndicatorBar({super.key});
 
@@ -10,9 +9,14 @@ class PercentageIndicatorBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Padding(
-      padding: const EdgeInsets.only(top: 16), // Ajuste de espacio
+      padding: EdgeInsets.fromLTRB(
+        size.width * 0.02,
+        size.width * 0.01,
+        size.width * 0.02,
+        size.width * 0.015,
+      ), // Ajuste de espacio
       child: SizedBox(
-        width: size.width * 0.9,
+        width: size.width * 0.85,
         child: const LinearProgressIndicator(
           value: 0.86, // Ajusta el valor según tus variables
           backgroundColor: Colors.red,

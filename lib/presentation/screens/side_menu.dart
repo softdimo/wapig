@@ -31,7 +31,7 @@ class _SideMenuState extends State<SideMenu> {
                   backgroundImage: AssetImage('assets/images/perfil.png'),
                 ),
                 SizedBox(height: 10),
-                Text('Pablo Lara'),
+                Text('Pablo Lara'),//Aqui se debe mostrar el nombre de usuario desde la BD
               ],
             ),
           ),

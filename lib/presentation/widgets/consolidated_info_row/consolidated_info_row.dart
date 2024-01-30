@@ -15,25 +15,32 @@ class ConsolidatedInfoRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        TitleName(
-          welcomeText: label,
-          fontSize: 18,
-          paddingTop: 0,
-          paddingBottom: 0,
-          typeText: FontWeight.normal,
-          isSansita: false,
+        Padding(
+          padding: EdgeInsets.only(left: size.width * 0.05),
+          child: TitleName(
+            welcomeText: label,
+            fontSize: 18,
+            paddingTop: 0,
+            paddingBottom: 0,
+            typeText: FontWeight.normal,
+            isSansita: false,
+          ),
         ),
-        TitleName(
-          welcomeText: value,
-          fontSize: 18,
-          colorText: valueColor,
-          paddingTop: 0,
-          paddingBottom: 0,
-          typeText: FontWeight.normal,
-          isSansita: false,
+        Padding(
+          padding: EdgeInsets.only(right: size.width * 0.05),
+          child: TitleName(
+            welcomeText: value,
+            fontSize: 18,
+            colorText: valueColor,
+            paddingTop: 0,
+            paddingBottom: 0,
+            typeText: FontWeight.normal,
+            isSansita: false,
+          ),
         ),
       ],
     );

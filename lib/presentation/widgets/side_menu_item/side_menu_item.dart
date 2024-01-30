@@ -6,11 +6,11 @@ class SideMenuItems {
   static List<ListTile> getItems() {
     return [
       const ListTile(
-        leading: Icon(Icons.home),
+        leading: Icon(Icons.home_outlined ),
         title: Text('Vista principal'),
       ),
       const ListTile(
-        leading: Icon(Icons.car_crash),
+        leading: Icon(Icons.account_balance_outlined),
         title: Text('Cuentas'),
       ),
       const ListTile(
@@ -18,7 +18,7 @@ class SideMenuItems {
         title: Text('Perfil'),
       ),
       const ListTile(
-        leading: Icon(Icons.settings),
+        leading: Icon(Icons.settings_outlined),
         title: Text('Configuración'),
       ),
     ];
