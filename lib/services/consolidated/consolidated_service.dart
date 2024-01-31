@@ -3,6 +3,7 @@ import 'package:wapig/models/consolidate_data.dart';
 import 'package:wapig/presentation/widgets/consolidated_info_row/consolidated_info_row.dart';
 import 'package:wapig/presentation/widgets/progress_indicator/progress_indicator.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
+import 'package:wapig/services/currency_format/currency_format.dart';
 
 class ConsolidatedService extends StatelessWidget {
   final ConsolidatedData data;
@@ -31,17 +32,17 @@ class ConsolidatedService extends StatelessWidget {
           ),
           ConsolidatedInfoRow(
             label: 'Ingresos:',
-            value: '\$ ${data.ingresos}',
+            value: CurrencyFormatter.formatColombianPesos(data.ingresos),
             valueColor: const Color.fromRGBO(20, 176, 27, 1),
           ),
           ConsolidatedInfoRow(
             label: 'Egresos:',
-            value: '\$ ${data.egresos}',
+            value: CurrencyFormatter.formatColombianPesos(data.egresos),
             valueColor: const Color.fromRGBO(242, 8, 8, 1),
           ),
           ConsolidatedInfoRow(
             label: 'Saldo:',
-            value: '\$ ${data.saldo}',
+            value: CurrencyFormatter.formatColombianPesos(data.saldo),
             valueColor: const Color.fromRGBO(51, 97, 151, 1),
           ),
           const PercentageIndicatorBar(),

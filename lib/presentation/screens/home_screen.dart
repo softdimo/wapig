@@ -7,14 +7,19 @@ import 'package:wapig/services/consolidated/consolidated_service.dart';
 import 'side_menu.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late ConsolidatedData _consolidatedData;
+  ConsolidatedData _consolidatedData = ConsolidatedData(
+    ingresos: 0,
+    egresos: 0,
+    saldo: 0,
+  );
 
   @override
   void initState() {
@@ -24,11 +29,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _fetchConsolidatedData() async {
     try {
-      _consolidatedData = await ConsolidatedDataServiceImpl().getConsolidatedData();
+      _consolidatedData =
+          await ConsolidatedDataServiceImpl().getConsolidatedData();
       setState(() {});
     } catch (error) {
-      print(error);
-      // Maneja el error aquí
+      //print(error);
+      // Manejar la posible exception aquí 
     }
   }
 
@@ -49,18 +55,18 @@ class _MyHomePageState extends State<MyHomePage> {
         bottom: PreferredSize(
             preferredSize: Size.fromHeight(size.width * 0.30),
             child: Padding(
-              padding:  EdgeInsets.fromLTRB(
+              padding: EdgeInsets.fromLTRB(
                 size.width * 0.03,
                 0,
                 size.width * 0.03,
                 size.width * 0.025,
               ),
-              child: ConsolidatedService(
-                  data: ConsolidatedData(
-                ingresos: 3500000,
-                egresos: 500000,
-                saldo: 3000000,
-              )),
+              // ignore: unnecessary_null_comparison
+              child: _consolidatedData != null
+                  ? ConsolidatedService(
+                      data: _consolidatedData,
+                    )
+                  : const SizedBox(),
             )),
       ),
       drawer: const SideMenu(),
