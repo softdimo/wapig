@@ -3,7 +3,6 @@ import 'package:wapig/presentation/screens/home_screen.dart';
 import 'package:wapig/presentation/screens/side_menu.dart';
 import 'package:wapig/presentation/widgets/single_count/single_count.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CuentasScreen extends StatefulWidget {
   const CuentasScreen({Key? key}) : super(key: key);
@@ -32,22 +31,30 @@ class _CuentasScreenState extends State<CuentasScreen> {
         
       ),
       drawer: const SideMenu(),
+
       // =====================================================
+
       body: Container(
-        padding: EdgeInsets.only(top: size.height * 0.01),
+        padding: EdgeInsets.only(top: size.height * 0.02),
         child: Align(
           alignment: Alignment.topCenter,
           child: Column(
             children: [
               const Text('Saldo de cuentas: 5.000.000'),
               Container(
+                // padding:  EdgeInsets.fromLTRB(
+                //   size.width * 0.00, 4,
+                //   size.width * 0.1,
+                //   size.width * 0.3,
+                // ),
+                // padding: EdgeInsets.only(top: size.height * 0.01),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(20),
                     color: Colors.white,
                     border:
                         Border.all(color: const Color.fromARGB(196, 196, 196, 1))
                 ),
-                height: size.height * 0.2,
+                height: size.height * 0.08,
                 width: size.width * 0.9,
                 child: Column(
                   children: [
@@ -67,8 +74,9 @@ class _CuentasScreenState extends State<CuentasScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          padding: EdgeInsets.only(left: size.width * 0.1),
+                        Expanded(
+                        // Container(
+                          // padding: EdgeInsets.only(left: size.width * 0.1),
                           child: SingleCount(
                               iconType1: Icons.lock,
                               accountName: 'Bancolombia:',
@@ -77,10 +85,37 @@ class _CuentasScreenState extends State<CuentasScreen> {
                               paddingBottom: 0,
                               typeText: FontWeight.normal,
                               // isSansita: false,
-                              onPressed: () {}),
+                              onPressed: () {}
+                            ),
                         ),
-                        Container(
-                          padding: EdgeInsets.only(right: size.width * 0.1),
+                        // ================= INICIO PRUEBA =================
+                        // Expanded(
+                        //   child: Row(
+                        //     crossAxisAlignment: CrossAxisAlignment.center,
+                        //     children: [
+                        //       const Icon(Icons.lock),
+                        //       const SizedBox(width: 0), // Ajusta este valor según tus necesidades
+                        //       Flexible(
+                        //         child: SingleCount(
+                        //           accountName: 'Bancolombia:',
+                        //           fontSize: 18,
+                        //           paddingTop: 0,
+                        //           paddingBottom: 0,
+                        //           typeText: FontWeight.normal,
+                        //           onPressed: () {},
+                        //         ),
+                        //       ),
+                        //     ],
+                        //   ),
+                        // ),
+                        // ================= FIN PRUEBA =================
+
+                        // ===================================================
+
+                        Expanded(
+                        // Container(
+                          // padding: EdgeInsets.only(right: size.width * 0.1),
+                          // SingleCount(
                           child: SingleCount(
                               // iconType: Icons.mail,
                               accountName: '2.081.275',
@@ -94,6 +129,9 @@ class _CuentasScreenState extends State<CuentasScreen> {
                         ),
                       ],
                     ),
+                    // ============================================
+                    // Iconos flutter
+                    // https://api.flutter.dev/flutter/material/Icons-class.html
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -112,8 +150,8 @@ class _CuentasScreenState extends State<CuentasScreen> {
                         Container(
                           padding: EdgeInsets.only(right: size.width * 0.1),
                           child: SingleCount(
-                              iconType2: Icons.remove_red_eye,
-                              iconType3: Icons.turn_sharp_right_outlined,
+                              iconType2: Icons.visibility_off_outlined,
+                              iconType3: Icons.repeat,
                               iconType4: Icons.more_vert,
                               // accountName: '0',
                               colorText: const Color.fromRGBO(20, 176, 27, 1),
