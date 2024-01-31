@@ -15,6 +15,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool isClicked = false;
   ConsolidatedData _consolidatedData = ConsolidatedData(
     ingresos: 0,
     egresos: 0,
@@ -34,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {});
     } catch (error) {
       //print(error);
-      // Manejar la posible exception aquí 
+      // Manejar la posible exception aquí
     }
   }
 
@@ -70,36 +71,68 @@ class _MyHomePageState extends State<MyHomePage> {
             )),
       ),
       drawer: const SideMenu(),
-      body: Container(
-        padding: EdgeInsets.only(top: size.height * 0.01),
-        child: Align(
-          alignment: Alignment.topCenter,
-          child: Container(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                color: Colors.white,
-                border: Border.all(
-                    color: const Color.fromARGB(204, 173, 173, 178))),
-            height: size.height * 0.2,
-            width: size.width * 0.9,
-            child: Column(
-              children: [
-                TitleName(
-                    welcomeText: 'Cuentas',
-                    fontSize: 25,
-                    paddingTop: 0,
-                    paddingBottom: 10,
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const CuentasScreen()),
-                      );
-                    }),
-              ],
+      body: Stack(
+        children: [
+          Container(
+            padding: EdgeInsets.only(top: size.height * 0.01),
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    color: Colors.white,
+                    border: Border.all(
+                        color: const Color.fromARGB(204, 173, 173, 178))),
+                height: size.height * 0.2,
+                width: size.width * 0.9,
+                child: Column(
+                  children: [
+                    TitleName(
+                        welcomeText: 'Cuentas',
+                        fontSize: 25,
+                        paddingTop: 0,
+                        paddingBottom: 10,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const CuentasScreen()),
+                          );
+                        }),
+                  ],
+                ),
+              ),
             ),
           ),
-        ),
+          Positioned(
+              bottom: 50,
+              right: 20,
+              child: FloatingActionButton(
+                onPressed: () {
+                  setState(() {
+                    isClicked = !isClicked;
+                  });
+                },
+                backgroundColor: !isClicked 
+                  ? const Color.fromARGB(255, 25, 94, 113)
+                  : const Color.fromARGB(255, 7, 178, 225),
+                shape: const CircleBorder(),
+                child: !isClicked ? const Icon(
+                  Icons.add,
+                  color: Colors.white,
+                  size: 40,
+                ) : const Icon(
+                  Icons.close_outlined,
+                  color: Colors.white,
+                  size: 40,
+                )
+              )),
+          Center(
+            child: isClicked 
+              ? const Text('Botón clickeado') 
+              : Container(),
+          )
+        ],
       ),
     );
   }

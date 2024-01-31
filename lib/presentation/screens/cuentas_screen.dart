@@ -74,7 +74,9 @@ class _CuentasScreenState extends State<CuentasScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
+                        const Icon(Icons.lock),
+                        const Text('Bancolombia'),
+                        /* Expanded(
                         // Container(
                           // padding: EdgeInsets.only(left: size.width * 0.1),
                           child: SingleCount(
@@ -87,7 +89,7 @@ class _CuentasScreenState extends State<CuentasScreen> {
                               // isSansita: false,
                               onPressed: () {}
                             ),
-                        ),
+                        ), */
                         // ================= INICIO PRUEBA =================
                         // Expanded(
                         //   child: Row(
