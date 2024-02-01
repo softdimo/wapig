@@ -28,7 +28,6 @@ class _CuentasScreenState extends State<CuentasScreen> {
           color: Colors.white,
           size: 35,
         ),
-        
       ),
       drawer: const SideMenu(),
 
@@ -42,12 +41,7 @@ class _CuentasScreenState extends State<CuentasScreen> {
             children: [
               const Text('Saldo de cuentas: 5.000.000'),
               Container(
-                // padding:  EdgeInsets.fromLTRB(
-                //   size.width * 0.00, 4,
-                //   size.width * 0.1,
-                //   size.width * 0.3,
-                // ),
-                // padding: EdgeInsets.only(top: size.height * 0.01),
+                padding: const EdgeInsets.all(12.0),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.white,
@@ -58,111 +52,113 @@ class _CuentasScreenState extends State<CuentasScreen> {
                 width: size.width * 0.9,
                 child: Column(
                   children: [
-                    // TitleName(
-                    //   welcomeText: 'Cuenta personal',
-                    //   fontSize: 20,
-                    //   paddingTop: 0,
-                    //   paddingBottom: 10,
-                    //   onPressed: () {
-                    //     /* Navigator.push(
-                    //       context,
-                    //       MaterialPageRoute(
-                    //           builder: (context) => const AccionCuentaScreen()),
-                    //     ); */
-                    //   }
-                    // ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Icon(Icons.lock),
-                        const Text('Bancolombia'),
-                        /* Expanded(
-                        // Container(
-                          // padding: EdgeInsets.only(left: size.width * 0.1),
-                          child: SingleCount(
-                              iconType1: Icons.lock,
-                              accountName: 'Bancolombia:',
-                              fontSize: 18,
-                              paddingTop: 0,
-                              paddingBottom: 0,
-                              typeText: FontWeight.normal,
-                              // isSansita: false,
-                              onPressed: () {}
-                            ),
-                        ), */
-                        // ================= INICIO PRUEBA =================
-                        // Expanded(
-                        //   child: Row(
-                        //     crossAxisAlignment: CrossAxisAlignment.center,
-                        //     children: [
-                        //       const Icon(Icons.lock),
-                        //       const SizedBox(width: 0), // Ajusta este valor según tus necesidades
-                        //       Flexible(
-                        //         child: SingleCount(
-                        //           accountName: 'Bancolombia:',
-                        //           fontSize: 18,
-                        //           paddingTop: 0,
-                        //           paddingBottom: 0,
-                        //           typeText: FontWeight.normal,
-                        //           onPressed: () {},
-                        //         ),
-                        //       ),
-                        //     ],
-                        //   ),
-                        // ),
-                        // ================= FIN PRUEBA =================
-
+                        const Row(
+                          children: [
+                            Icon(Icons.lock),
+                            Text('Bancolombia'),
+                          ],
+                        ),
+                        
                         // ===================================================
 
-                        Expanded(
-                        // Container(
-                          // padding: EdgeInsets.only(right: size.width * 0.1),
-                          // SingleCount(
-                          child: SingleCount(
-                              // iconType: Icons.mail,
-                              accountName: '2.081.275',
-                              colorText: const Color.fromRGBO(20, 176, 27, 1),
-                              fontSize: 18,
-                              paddingTop: 0,
-                              paddingBottom: 0,
-                              typeText: FontWeight.normal,
-                              isSansita: false,
-                              onPressed: () {}),
+                        SingleCount(
+                          accountName: '2.081.275',
+                          colorText: const Color.fromRGBO(20, 176, 27, 1),
+                          fontSize: 18,
+                          paddingTop: 0,
+                          paddingBottom: 0,
+                          typeText: FontWeight.normal,
+                          isSansita: false,
+                          onPressed: () {}
                         ),
                       ],
                     ),
+
                     // ============================================
-                    // Iconos flutter
-                    // https://api.flutter.dev/flutter/material/Icons-class.html
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        SingleCount(
+                          iconType2: Icons.visibility_off_outlined,
+                          iconType3: Icons.repeat,
+                          iconType4: Icons.more_vert,
+                          colorText: const Color.fromRGBO(20, 176, 27, 1),
+                          fontSize: 10,
+                          paddingTop: 0,
+                          paddingBottom: 0,
+                          typeText: FontWeight.normal,
+                          isSansita: false,
+                          onPressed: () {}
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              // ========================================================
+              // ========================================================
+              // ========================================================
+
+              Container(
+                padding: const EdgeInsets.all(12.0),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.white,
+                    border:
+                        Border.all(color: const Color.fromARGB(196, 196, 196, 1))
+                ),
+                height: size.height * 0.08,
+                width: size.width * 0.9,
+                child: Column(
+                  children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          padding: EdgeInsets.only(left: size.width * 0.1),
-                          child: SingleCount(
-                              // iconType: Icons.lock,
-                              accountName: '',
-                              fontSize: 18,
-                              paddingTop: 0,
-                              paddingBottom: 0,
-                              typeText: FontWeight.normal,
-                              isSansita: false,
-                              onPressed: () {}),
+                        const Row(
+                          children: [
+                            Icon(Icons.lock),
+                            Text('Billetera'),
+                          ],
                         ),
-                        Container(
-                          padding: EdgeInsets.only(right: size.width * 0.1),
-                          child: SingleCount(
-                              iconType2: Icons.visibility_off_outlined,
-                              iconType3: Icons.repeat,
-                              iconType4: Icons.more_vert,
-                              // accountName: '0',
-                              colorText: const Color.fromRGBO(20, 176, 27, 1),
-                              fontSize: 18,
-                              paddingTop: 0,
-                              paddingBottom: 0,
-                              typeText: FontWeight.normal,
-                              isSansita: false,
-                              onPressed: () {}),
+                        
+                        // ===================================================
+
+                        SingleCount(
+                          accountName: '500.000',
+                          colorText: const Color.fromRGBO(20, 176, 27, 1),
+                          fontSize: 18,
+                          paddingTop: 0,
+                          paddingBottom: 0,
+                          typeText: FontWeight.normal,
+                          isSansita: false,
+                          onPressed: () {}
+                        ),
+                      ],
+                    ),
+
+                    // ============================================
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        SingleCount(
+                          iconType2: Icons.visibility_off_outlined,
+                          iconType3: Icons.repeat,
+                          iconType4: Icons.more_vert,
+                          colorText: const Color.fromRGBO(20, 176, 27, 1),
+                          fontSize: 10,
+                          paddingTop: 0,
+                          paddingBottom: 0,
+                          typeText: FontWeight.normal,
+                          isSansita: false,
+                          onPressed: () {}
                         ),
                       ],
                     ),
