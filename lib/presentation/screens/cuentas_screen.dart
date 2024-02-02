@@ -107,7 +107,7 @@ class _CuentasScreenState extends State<CuentasScreen> {
               // ========================================================
 
               Container(
-                padding: const EdgeInsets.all(12.0),
+                padding: EdgeInsets.all(size.height * 0.01),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.white,
