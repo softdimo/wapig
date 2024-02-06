@@ -17,6 +17,9 @@ class _CuentasScreenState extends State<CuentasScreen> {
     // Obtener las dimensiones de la pantalla
     final size = MediaQuery.of(context).size;
 
+    const logoBancolombia = AssetImage('assets/images/LogoBancolombia.png');
+    const logoBilletera = AssetImage('assets/images/billetera.png');
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -57,7 +60,11 @@ class _CuentasScreenState extends State<CuentasScreen> {
                       children: [
                         const Row(
                           children: [
-                            Icon(Icons.lock),
+                            Image(
+                              image: logoBancolombia, // Ruta de la imagen
+                              width: 24, // Ajusta el ancho según sea necesario
+                              height: 24, // Ajusta la altura según sea necesario
+                            ),
                             Text('Bancolombia'),
                           ],
                         ),
@@ -123,7 +130,12 @@ class _CuentasScreenState extends State<CuentasScreen> {
                       children: [
                         const Row(
                           children: [
-                            Icon(Icons.lock),
+                            Image(
+                              image: logoBilletera, // Ruta de la imagen
+                              width: 24, // Ajusta el ancho según sea necesario
+                              height: 24, // Ajusta la altura según sea necesario
+                            ),
+                            // Icon(Icons.lock),
                             Text('Billetera'),
                           ],
                         ),
