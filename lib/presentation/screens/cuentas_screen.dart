@@ -218,8 +218,35 @@ void showModal(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text("Título del modal"),
-        content: const Text("Contenido del modal"),
+        title: const Center(
+          child: Text(
+            'Nueva Cuenta',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+        ),
+
+        // =========================================
+        
+        // content: const Text("Contenido del modal"),
+        content: Column(
+          children: [
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'Nombre cuenta',
+              ),
+            ),
+            SizedBox(height: 10),
+            // =============================
+            // =============================
+            // Widget
+            // Text('nombre cuenta'),
+            // Text('logo cuenta'),
+            // Text('valo inicial cuenta'),
+          ],
+        ),
+
+        // =========================================
+
         actions: <Widget>[
           TextButton(
             onPressed: () {
