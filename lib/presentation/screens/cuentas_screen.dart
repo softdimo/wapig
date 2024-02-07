@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; 
 import 'package:wapig/presentation/screens/home_screen.dart';
 import 'package:wapig/presentation/screens/side_menu.dart';
 import 'package:wapig/presentation/widgets/single_count/single_count.dart';
@@ -32,8 +32,25 @@ class _CuentasScreenState extends State<CuentasScreen> {
           size: 35,
         ),
       ),
+
+      // =====================================================
+      // =====================================================
+
       drawer: const SideMenu(),
 
+      // =====================================================
+      // =====================================================
+
+      // floatingActionButton: FloatingActionButton (
+      //   shape: const StadiumBorder(),
+      //   onPressed: () {
+      //     showModal(context); // Llamada a la función que muestra el modal
+      //   },
+      //   backgroundColor: const Color(0xFF3f8be2),
+      //   child: const Icon( Icons.add_outlined, color: Colors.white ),
+      // ),
+
+      // =====================================================
       // =====================================================
 
       body: Container(
@@ -181,8 +198,39 @@ class _CuentasScreenState extends State<CuentasScreen> {
           ),
         ),
       ),
+      
       // =====================================================
+
+      floatingActionButton: FloatingActionButton (
+        shape: const StadiumBorder(),
+        onPressed: () {
+          showModal(context); // Llamada a la función que muestra el modal
+        },
+        backgroundColor: const Color(0xFF3f8be2),
+        child: const Icon( Icons.add_outlined, color: Colors.white ),
+      ),
     );
   }
 }
+
+void showModal(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text("Título del modal"),
+        content: const Text("Contenido del modal"),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(); // Cerrar el modal
+            },
+            child: const Text("Cerrar"),
+          ),
+        ],
+      );
+    },
+  );
+}
+
 
