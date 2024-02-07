@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:wapig/models/consolidate_data.dart';
+import 'package:wapig/presentation/screens/accion_cuenta_screen.dart';
 import 'package:wapig/presentation/screens/cuentas_screen.dart';
 import 'package:wapig/presentation/widgets/floatingButton/floating_button.dart';
+import 'package:wapig/presentation/widgets/modal_windows/transfer_modal/transfer_modal.dart';
 import 'package:wapig/presentation/widgets/row_text_floating_button/row_text_floating_button.dart';
 import 'package:wapig/presentation/widgets/side_menu_item/side_menu_item.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
@@ -19,11 +21,25 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _currentSelectedItem = 0;
   bool isClicked = false;
+  bool _showModal = false;
+
   ConsolidatedData _consolidatedData = ConsolidatedData(
     ingresos: 0,
     egresos: 0,
     saldo: 0,
   );
+
+  void _showModalDialog() {
+    setState(() {
+      _showModal = true;
+    });
+  }
+
+  void _hideModalDialog() {
+    setState(() {
+      _showModal = false;
+    });
+  }
 
   @override
   void initState() {
@@ -40,6 +56,16 @@ class _MyHomePageState extends State<MyHomePage> {
       // Manejar la posible exception aquí
     }
   }
+
+  void _showTransferModal(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return const ModalWindowTransfer();
+    },
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -149,8 +175,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               Positioned(
-                  bottom: 50,
-                  right: 20,
+                  bottom: size.height * 0.05,
+                  right: size.width * 0.05,
                   child: FloatingButtonWidget(
                     onPressed: () {
                       setState(() {
@@ -167,43 +193,66 @@ class _MyHomePageState extends State<MyHomePage> {
               Visibility(
                 visible: isClicked,
                 child: Positioned(
-                    bottom: 130,
-                    right: 50,
+                    bottom: size.height * 0.12,
+                    right: size.width * 0.05,
                     child: FloatingButtonWithText(
                       colorButtom: const Color.fromARGB(240, 247, 9, 9),
                       icon: Icons.remove,
                       colorIcon: Colors.white,
                       sizeIcon: 40,
                       text: 'Gasto',
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          isClicked = !isClicked;
+                        });
+                        /* Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AccionCuentaScreen()),
+                        ); */
+                      },
                     )),
               ),
               Visibility(
                 visible: isClicked,
                 child: Positioned(
-                    bottom: 200,
-                    right: 50,
+                    bottom: size.height * 0.19,
+                    right: size.width * 0.05,
                     child: FloatingButtonWithText(
                       colorButtom: const Color.fromARGB(239, 17, 230, 28),
                       icon: Icons.add,
                       colorIcon: Colors.white,
                       sizeIcon: 40,
                       text: 'Ingreso',
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          isClicked = !isClicked;
+                        });
+                        /* Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AccionCuentaScreen()),
+                        ); */
+                      },
                     )),
               ),
               Visibility(
                 visible: isClicked,
                 child: Positioned(
-                    bottom: 270,
-                    right: 50,
+                    bottom: size.height * 0.26,
+                    right: size.width * 0.05,
                     child: FloatingButtonWithText(
                       colorButtom: const Color.fromARGB(255, 50, 97, 151),
                       icon: Icons.repeat,
                       colorIcon: Colors.white,
                       sizeIcon: 40,
                       text: 'Transferencia',
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          isClicked = !isClicked;
+                        });
+                        _showTransferModal(context);
+                      },
                     )),
               )
             ],
