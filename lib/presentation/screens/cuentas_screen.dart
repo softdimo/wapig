@@ -3,6 +3,8 @@ import 'package:wapig/presentation/screens/home_screen.dart';
 import 'package:wapig/presentation/screens/side_menu.dart';
 import 'package:wapig/presentation/widgets/single_count/single_count.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
+import 'package:image_picker/image_picker.dart';
+
 
 class CuentasScreen extends StatefulWidget {
   const CuentasScreen({Key? key}) : super(key: key);
@@ -37,18 +39,6 @@ class _CuentasScreenState extends State<CuentasScreen> {
       // =====================================================
 
       drawer: const SideMenu(),
-
-      // =====================================================
-      // =====================================================
-
-      // floatingActionButton: FloatingActionButton (
-      //   shape: const StadiumBorder(),
-      //   onPressed: () {
-      //     showModal(context); // Llamada a la función que muestra el modal
-      //   },
-      //   backgroundColor: const Color(0xFF3f8be2),
-      //   child: const Icon( Icons.add_outlined, color: Colors.white ),
-      // ),
 
       // =====================================================
       // =====================================================
@@ -211,53 +201,128 @@ class _CuentasScreenState extends State<CuentasScreen> {
       ),
     );
   }
-}
 
-void showModal(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: const Center(
-          child: Text(
-            'Nueva Cuenta',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-        ),
+  // ================================================================
+  // ================================================================
 
-        // =========================================
-        
-        // content: const Text("Contenido del modal"),
-        content: Column(
-          children: [
-            TextFormField(
-              decoration: const InputDecoration(
-                labelText: 'Nombre cuenta',
-              ),
+  void showModal(BuildContext context) {
+    const logoBilletera = AssetImage('assets/images/billetera.png');
+    const logoBancolombia = AssetImage('assets/images/LogoBancolombia.png');
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Center(
+            child: Text(
+              'Nueva Cuenta',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10),
-            // =============================
-            // =============================
-            // Widget
-            // Text('nombre cuenta'),
-            // Text('logo cuenta'),
-            // Text('valo inicial cuenta'),
-          ],
-        ),
-
-        // =========================================
-
-        actions: <Widget>[
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop(); // Cerrar el modal
-            },
-            child: const Text("Cerrar"),
           ),
-        ],
-      );
-    },
-  );
-}
+
+          // =========================================
+          
+          // content: const Text("Contenido del modal"),
+          content: Column(
+            children: [
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Nombre cuenta',
+                ),
+              ),
+
+              // =============================
+              // =============================
+
+              const SizedBox(height: 30),
+              
+              // =============================
+              // =============================
+
+              // const Image(
+              //   image: AssetImage('assets/images/LogoBancolombia.png'),
+              //   width: 30,
+              //   height: 30,
+              // ),
+
+              ElevatedButton(
+                onPressed: () {
+                  // Agregar lógica para seleccionar imagen
+                  // _seleccionarImagen(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  // shape: const StadiumBorder(),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(1000), // Ajusta el radio según sea necesario
+                  ),
+                ),
+                child: const Text('logo'),
+                // child: const Image(
+                //   image: logoBancolombia, // Ruta de la imagen
+                //   width: 24, // Ajusta el ancho según sea necesario
+                //   height: 24, // Ajusta la altura según sea necesario
+                // ),
+              ),
+              // =============================
+              // =============================
+              
+              const SizedBox(height: 10),
+              
+              // =============================
+              // =============================
+
+              // =============================
+              // =============================
+
+              TextFormField(
+                decoration: const InputDecoration(
+                  labelText: 'Valor inicial cuenta',
+                ),
+                keyboardType: TextInputType.number,
+                // Puedes añadir validaciones aquí
+              ),
+            ],
+          ),
+
+          // =========================================
+
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // Cerrar el modal
+              },
+              child: const Text("Cerrar"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // ================================================================
+  // ================================================================
+
+  // Función para seleccionar imagen
+  // void _seleccionarImagen(BuildContext context) async {
+  //   final picker = ImagePicker();
+  //   final pickedFile = await picker.pickImage(source: ImageSource.gallery); // Abre el selector de imágenes de la galería
+
+  //   if (pickedFile != null) {
+  //     // Si el usuario selecciona una imagen, puedes hacer lo que desees con ella aquí
+  //     // Por ejemplo, puedes almacenar la ruta de la imagen en una variable y mostrarla en la UI
+  //     setState(() {
+  //       // Actualiza la UI con la imagen seleccionada
+  //     });
+  //   }
+  // }
+
+} // FIN class _CuentasScreenState
+
+
+
+
+
+
+
+
 
 
