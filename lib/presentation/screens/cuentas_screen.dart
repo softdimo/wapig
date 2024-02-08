@@ -222,80 +222,46 @@ class _CuentasScreenState extends State<CuentasScreen> {
           // =========================================
           
           // content: const Text("Contenido del modal"),
-          content: Column(
-            children: [
-              TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Nombre cuenta',
-                ),
+          content: Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Nombre cuenta',
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  GestureDetector(
+                    onTap: () {
+                      // Código para cambiar la imagen
+                      setState(() {
+                        // Actualizar la variable que contiene la ruta de la imagen
+                      });
+                    },
+                    child: const SizedBox(
+                      height: 50, // Establecer la altura deseada para la imagen
+                      child: Image(
+                        image: AssetImage('assets/images/LogoBancolombia.png'),
+                        width: 30,
+                        height: 30,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      labelText: 'Valor inicial cuenta',
+                    ),
+                    keyboardType: TextInputType.number,
+                    // Puedes añadir validaciones aquí
+                  ),
+                ],
               ),
-
-              // =============================
-              // =============================
-
-              const SizedBox(height: 30),
-              
-              // =============================
-              // =============================
-
-              GestureDetector(
-                onTap: () {
-                  // Código para cambiar la imagen
-                  setState(() {
-                    // Actualizar la variable que contiene la ruta de la imagen
-                  });
-                },
-                child: const Image(
-                  image: AssetImage('assets/images/LogoBancolombia.png'),
-                  width: 30,
-                  height: 30,
-                ),
-              ),
-
-              // const Image(
-              //   image: AssetImage('assets/images/LogoBancolombia.png'),
-              //   width: 30,
-              //   height: 30,
-              // ),
-
-              // ElevatedButton(
-              //   onPressed: () {
-              //     // Agregar lógica para seleccionar imagen
-              //     // _seleccionarImagen(context);
-              //   },
-              //   style: ElevatedButton.styleFrom(
-              //     // shape: const StadiumBorder(),
-              //     shape: RoundedRectangleBorder(
-              //       borderRadius: BorderRadius.circular(1000), // Ajusta el radio según sea necesario
-              //     ),
-              //   ),
-              //   // child: const Text('logo'),
-              //   child: const Image(
-              //     image: logoBancolombia, // Ruta de la imagen
-              //     width: 24, // Ajusta el ancho según sea necesario
-              //     height: 24, // Ajusta la altura según sea necesario
-              //   ),
-              // ),
-              // =============================
-              // =============================
-              
-              const SizedBox(height: 10),
-              
-              // =============================
-              // =============================
-
-              // =============================
-              // =============================
-
-              TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Valor inicial cuenta',
-                ),
-                keyboardType: TextInputType.number,
-                // Puedes añadir validaciones aquí
-              ),
-            ],
+            ),
           ),
+
 
           // =========================================
 
