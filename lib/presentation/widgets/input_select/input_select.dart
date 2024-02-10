@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class InputSelectGeneric extends StatefulWidget {
-  const InputSelectGeneric({super.key});
+  final String hintText;
+  const InputSelectGeneric({super.key, required this.hintText});
 
   @override
   State<InputSelectGeneric> createState() => _InputSelectGenericState();
@@ -13,6 +14,7 @@ class _InputSelectGenericState extends State<InputSelectGeneric> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final hinText = widget.hintText;
 
     return SizedBox(
       width: size.width * 0.7,
@@ -27,11 +29,13 @@ class _InputSelectGenericState extends State<InputSelectGeneric> {
           child: Padding(
             padding: const EdgeInsets.only(left: 10),
             child: DropdownButton(
+              dropdownColor: Colors.white,
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
               underline: const SizedBox(),
               value: selectedValue, // Usar la variable de estado
-              hint: const Text(
-                'Desde:',
-                style: TextStyle(fontSize: 19, color: Colors.grey),
+              hint: Text(
+                hinText,
+                style: const TextStyle(fontSize: 19, color: Colors.grey),
               ),
               icon: const Padding(
                 padding: EdgeInsets.only(left: 80),
@@ -46,8 +50,15 @@ class _InputSelectGenericState extends State<InputSelectGeneric> {
                       style: TextStyle(
                           color: Colors.grey)), // Deshabilitar la opción
                 ),
-                DropdownMenuItem(value: 'cuenta1', child: Text('Bancolombia')),
-                DropdownMenuItem(value: 'cuenta2', child: Text('Billetera')),
+                DropdownMenuItem(
+                    value: 'cuenta1',
+                    child: Text(
+                      'Bancolombia',
+                      style: TextStyle(fontSize: 19),
+                    )),
+                DropdownMenuItem(
+                    value: 'cuenta2',
+                    child: Text('Billetera', style: TextStyle(fontSize: 19)))
                 // ... otras opciones
               ],
               onChanged: (value) {
@@ -56,6 +67,7 @@ class _InputSelectGenericState extends State<InputSelectGeneric> {
                 });
 
                 // Manejar la selección del elemento aquí
+                // ignore: avoid_print
                 print('Se seleccionó la cuenta: $value');
               },
             ),

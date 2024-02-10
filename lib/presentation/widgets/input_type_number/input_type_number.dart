@@ -2,21 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class InputTypeNumber extends StatelessWidget {
+  final TextEditingController textController;
+  final FocusNode focusNode;
+
   const InputTypeNumber({
     super.key,
-    required this.size,
-    //required this.onValue,
     required this.textController,
     required this.focusNode,
   });
 
-  final Size size;
-  //final ValueChanged<String> onValue;
-  final TextEditingController textController;
-  final FocusNode focusNode;
-
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Container(
       width: size.width * 0.70,
       height: size.height * 0.05,
@@ -25,7 +22,7 @@ class InputTypeNumber extends StatelessWidget {
         border: Border.all(color: const Color.fromARGB(204, 173, 173, 178)),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 10),
+        padding: EdgeInsets.only(left: size.width * 0.02),
         child: Row(
           children: [
             Expanded(
@@ -39,18 +36,13 @@ class InputTypeNumber extends StatelessWidget {
                     hintStyle: TextStyle(color: Colors.grey),
                     hintText: 'Valor:',
                     contentPadding: EdgeInsets.symmetric(vertical: 10)),
-                onFieldSubmitted: (value) {
-                  //onValue(value);
-                  textController.clear();
-                  focusNode.requestFocus();
-                },
+                controller: textController,
                 style: const TextStyle(fontSize: 19),
               ),
             ),
-            //const SizedBox(width: 10,),
-            const Padding(
-              padding: EdgeInsets.only(right: 10),
-              child: Icon(Icons.attach_money_rounded),
+            Padding(
+              padding: EdgeInsets.only(right: size.width * 0.02),
+              child: const Icon(Icons.attach_money_rounded),
             ),
           ],
         ),
