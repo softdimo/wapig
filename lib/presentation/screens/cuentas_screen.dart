@@ -4,6 +4,7 @@ import 'package:wapig/presentation/screens/side_menu.dart';
 import 'package:wapig/presentation/widgets/single_count/single_count.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:image_picker_android/image_picker_android.dart';
 
 import '../widgets/input_generic/input_generic.dart';
 import '../widgets/input_type_number/input_type_number.dart';
@@ -233,22 +234,6 @@ class _CuentasScreenState extends State<CuentasScreen> {
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                // children: [
-                //   const InputSelectGeneric(hintText: 'Desde:'),
-                //   const SizedBox(height: 10),
-                //   const InputSelectGeneric(hintText: 'A:'),
-                //   const SizedBox(height: 10),
-                //   InputTypeNumber(
-                //       textController: textController, focusNode: focusNode),
-                //   const SizedBox(
-                //     height: 20,
-                //   ),
-                //   DateInputGeneric(
-                //     onDateSelected: (DateTime? date) {
-                //       selectedDate = date;
-                //     },
-                //   )
-                // ],
                 children: [
                   const InputGeneric(
                     fontSizeText: 20, 
@@ -257,13 +242,6 @@ class _CuentasScreenState extends State<CuentasScreen> {
                     height: 0.05,
                     iconType: Icons.account_circle_outlined,
                   ),
-                  // TextFormField(
-                  //   decoration: const InputDecoration(
-                  //       // const InputSelectGeneric(hintText: 'Desde:'),
-                      
-                  //     labelText: 'Nombre cuenta',
-                  //   ),
-                  // ),
                   const SizedBox(height: 30),
                   GestureDetector(
                     onTap: () {
@@ -286,13 +264,6 @@ class _CuentasScreenState extends State<CuentasScreen> {
                   InputTypeNumber(
                     textController: textController, focusNode: focusNode
                   ),
-                  // TextFormField(
-                  //   decoration: const InputDecoration(
-                  //     labelText: 'Valor inicial cuenta',
-                  //   ),
-                  //   keyboardType: TextInputType.number,
-                  //   // Puedes añadir validaciones aquí
-                  // ),
                 ],
               ),
             ),
@@ -317,19 +288,19 @@ class _CuentasScreenState extends State<CuentasScreen> {
   // ================================================================
   // ================================================================
 
-  // Función para seleccionar imagen
-  // void _seleccionarImagen(BuildContext context) async {
-  //   final picker = ImagePicker();
-  //   final pickedFile = await picker.pickImage(source: ImageSource.gallery); // Abre el selector de imágenes de la galería
+  /// Función para seleccionar imagen
+  void _seleccionarImagen(BuildContext context) async {
+    final picker = ImagePicker();
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery); // Abre el selector de imágenes de la galería
 
-  //   if (pickedFile != null) {
-  //     // Si el usuario selecciona una imagen, puedes hacer lo que desees con ella aquí
-  //     // Por ejemplo, puedes almacenar la ruta de la imagen en una variable y mostrarla en la UI
-  //     setState(() {
-  //       // Actualiza la UI con la imagen seleccionada
-  //     });
-  //   }
-  // }
+    if (pickedFile != null) {
+      // Si el usuario selecciona una imagen, puedes hacer lo que desees con ella aquí
+      // Por ejemplo, puedes almacenar la ruta de la imagen en una variable y mostrarla en la UI
+      setState(() {
+        // Actualiza la UI con la imagen seleccionada
+      });
+    }
+  }
 
 } // FIN class _CuentasScreenState
 

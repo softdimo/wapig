@@ -32,3 +32,6 @@
 
 # Iconos flutter
 - https://api.flutter.dev/flutter/material/Icons-class.html
+
+# Image Picker flutter
+https://pub.dev/packages/image_picker
