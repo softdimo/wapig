@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wapig/presentation/widgets/date_input_generic/date_input_generic.dart';
 import 'package:wapig/presentation/widgets/input_select/input_select.dart';
 import 'package:wapig/presentation/widgets/input_type_number/input_type_number.dart';
+import 'package:wapig/presentation/widgets/input_type_text_generic/input_type_text_generic.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
 
 class ModalWindowTransfer extends StatefulWidget {
@@ -12,9 +13,11 @@ class ModalWindowTransfer extends StatefulWidget {
 }
 
 class _ModalWindowTransferState extends State<ModalWindowTransfer> {
-  String? selectedValue;
-  String? selectedValue2;
-  final textController = TextEditingController();
+  /* String? selectedValue;
+  String? selectedValue2; */
+  final _textController = TextEditingController();
+  final _dateController = TextEditingController();
+  final _textNoteController = TextEditingController();
   final focusNode = FocusNode();
   DateTime? selectedDate;
 
@@ -26,7 +29,8 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    String textValue = '';
+    String textValueNumber = '';
+    String textValueNote = '';
     return Dialog(
       backgroundColor: Colors.white,
       child: SizedBox(
@@ -47,7 +51,7 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
                 const InputSelectGeneric(hintText: 'A:'),
                 const SizedBox(height: 10),
                 InputTypeNumber(
-                    textController: textController, focusNode: focusNode),
+                    textController: _textController, focusNode: focusNode),
                 const SizedBox(
                   height: 20,
                 ),
@@ -55,7 +59,14 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
                   onDateSelected: (DateTime? date) {
                     selectedDate = date;
                   },
-                )
+                  //dateController: _dateController,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                InputTypeTextGeneric(
+                    textController: _textNoteController,
+                    hintText: 'Agregar nota'),
               ],
             ),
             Row(
@@ -69,13 +80,18 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
                 ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      textValue = textController.text;
+                      textValueNumber = _textController.text;
+                      textValueNote = _textNoteController.text;
+                      selectedDate;
                     });
-                    print('Valor ingresado: $textValue');
-                    print('Fecha seleccionada $selectedDate');
-                    onValue(
-                        textValue); // Llamar a onValue directamente aquí si es necesario
-                    textController.clear();
+                    // ignore: avoid_print
+                    print('Valor ingresado: $textValueNumber');
+                    // ignore: avoid_print
+                    print('Fecha seleccionada: $selectedDate');
+                    // ignore: avoid_print
+                    print('Texto ingresado: $textValueNote');
+                    /* onValue(textValue); */ // Llamar a onValue directamente aquí si es necesario
+                    _textController.clear();
                     focusNode.requestFocus();
                   },
                   child: const Text('Guardar'),
@@ -91,7 +107,7 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
   void onFieldSubmitted(value) {
     print('Valor en onFieldSubmitted: $value');
     onValue(value);
-    textController.clear();
+    _textController.clear();
     focusNode.requestFocus();
   }
 }

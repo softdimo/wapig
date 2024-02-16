@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/login.dart';
+import 'package:wapig/presentation/screens/auth/login.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic_password.dart';
 import 'package:wapig/presentation/widgets/logo_image/logo_image.dart';

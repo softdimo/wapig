@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/logos_welcome.dart';
-import 'package:wapig/presentation/screens/login.dart'; // Assuming renamed
+import 'package:wapig/presentation/screens/auth/login.dart'; // Assuming renamed
 
 class ScreenWelcome extends StatefulWidget {
   const ScreenWelcome({super.key});

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class InputTypeNumber extends StatelessWidget {
-  final TextEditingController textController;
   final FocusNode focusNode;
+  final TextEditingController textController;
 
   const InputTypeNumber({
     super.key,
@@ -27,6 +27,11 @@ class InputTypeNumber extends StatelessWidget {
           children: [
             Expanded(
               child: TextFormField(
+                /* onTapOutside: (event) {
+                  focusNode.unfocus();
+                }, */
+                //focusNode: focusNode,
+                controller: textController,
                 keyboardType: TextInputType.number,
                 inputFormatters: [
                   FilteringTextInputFormatter.allow(RegExp(r'^[0-9]+$')),
@@ -36,8 +41,14 @@ class InputTypeNumber extends StatelessWidget {
                     hintStyle: TextStyle(color: Colors.grey),
                     hintText: 'Valor:',
                     contentPadding: EdgeInsets.symmetric(vertical: 10)),
-                controller: textController,
                 style: const TextStyle(fontSize: 19),
+
+                /* validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Este campo es requerido';
+                  }
+                  return null;
+                }, */
               ),
             ),
             Padding(

@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:wapig/presentation/screens/home_screen.dart';
-import 'package:wapig/presentation/screens/recuperar_pw_screen1.dart';
-import 'package:wapig/presentation/screens/registro_screen.dart';
+import 'package:wapig/presentation/screens/auth/recuperar_pw_screen1.dart';
+import 'package:wapig/presentation/screens/auth/registro_screen.dart';
 import 'package:wapig/presentation/widgets/buttons/buttons.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
 import 'package:wapig/presentation/widgets/input_generic/input_generic_password.dart';
