@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wapig/models/consolidate_data.dart';
-import 'package:wapig/presentation/screens/accion_cuenta_screen.dart';
 import 'package:wapig/presentation/screens/cuentas_screen.dart';
 import 'package:wapig/presentation/widgets/floatingButton/floating_button.dart';
 import 'package:wapig/presentation/widgets/modal_windows/transfer_modal/transfer_modal.dart';
@@ -21,6 +20,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _currentSelectedItem = 0;
   bool isClicked = false;
+  // ignore: unused_field
   bool _showModal = false;
 
   ConsolidatedData _consolidatedData = ConsolidatedData(

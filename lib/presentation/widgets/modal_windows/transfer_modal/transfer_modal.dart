@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wapig/presentation/widgets/buttons/buttons.dart';
 import 'package:wapig/presentation/widgets/date_input_generic/date_input_generic.dart';
 import 'package:wapig/presentation/widgets/input_select/input_select.dart';
 import 'package:wapig/presentation/widgets/input_type_number/input_type_number.dart';
@@ -13,18 +14,17 @@ class ModalWindowTransfer extends StatefulWidget {
 }
 
 class _ModalWindowTransferState extends State<ModalWindowTransfer> {
-  /* String? selectedValue;
-  String? selectedValue2; */
   final _textController = TextEditingController();
+  // ignore: unused_field
   final _dateController = TextEditingController();
   final _textNoteController = TextEditingController();
   final focusNode = FocusNode();
   DateTime? selectedDate;
+  final _formKey = GlobalKey<FormState>();
+  final String msgError = '';
+  bool isChecked = true;
 
-  void onValue(String value) {
-    //print('Valor capturado: $value');
-    // Replace with your desired actions (e.g., validation, storage, calculations)
-  }
+  void onValue(String value) {}
 
   @override
   Widget build(BuildContext context) {
@@ -35,70 +35,81 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
       backgroundColor: Colors.white,
       child: SizedBox(
         width: size.width * 0.8,
-        height: size.height * 0.7,
-        child: Column(
-          children: <Widget>[
-            TitleName(
-              fontSize: 17,
-              isSansita: false,
-              paddingTop: size.height * 0.01,
-              welcomeText: 'TRANSFERENCIA ENTRE CUENTAS',
-            ),
-            Column(
-              children: [
-                const InputSelectGeneric(hintText: 'Desde:'),
-                const SizedBox(height: 10),
-                const InputSelectGeneric(hintText: 'A:'),
-                const SizedBox(height: 10),
-                InputTypeNumber(
-                    textController: _textController, focusNode: focusNode),
-                const SizedBox(
-                  height: 20,
-                ),
-                DateInputGeneric(
-                  onDateSelected: (DateTime? date) {
-                    selectedDate = date;
-                  },
-                  //dateController: _dateController,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                InputTypeTextGeneric(
-                    textController: _textNoteController,
-                    hintText: 'Agregar nota'),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text('Cancelar'),
-                ),
-                const SizedBox(width: 8.0),
-                ElevatedButton(
-                  onPressed: () {
+        height: size.height * 0.5,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            children: <Widget>[
+              TitleName(
+                fontSize: 17,
+                isSansita: false,
+                paddingTop: size.height * 0.01,
+                welcomeText: 'TRANSFERENCIA ENTRE CUENTAS',
+              ),
+              Column(
+                children: [
+                  const InputSelectGeneric(hintText: 'Desde:'),
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  const InputSelectGeneric(hintText: 'A:'),
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  InputTypeNumber(
+                    textController: _textController,
+                    focusNode: focusNode,
+                  ),
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  DateInputGeneric(
+                    onDateSelected: (DateTime? date) {
+                      selectedDate = date;
+                    },
+                  ),
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  InputTypeTextGeneric(
+                      textController: _textNoteController,
+                      hintText: 'Agregar nota:'),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              ButtonsRow(
+                onPressed1: () => Navigator.pop(context),
+                onPressed2: () {
+                  ///if (_formKey.currentState!.validate()) {
+                  if (_textController.text.isNotEmpty &&
+                      _textNoteController.text.isNotEmpty &&
+                      selectedDate != null) {
+                    // La validación del formulario es exitosa
                     setState(() {
                       textValueNumber = _textController.text;
                       textValueNote = _textNoteController.text;
                       selectedDate;
                     });
-                    // ignore: avoid_print
                     print('Valor ingresado: $textValueNumber');
-                    // ignore: avoid_print
                     print('Fecha seleccionada: $selectedDate');
-                    // ignore: avoid_print
                     print('Texto ingresado: $textValueNote');
-                    /* onValue(textValue); */ // Llamar a onValue directamente aquí si es necesario
                     _textController.clear();
                     focusNode.requestFocus();
-                  },
-                  child: const Text('Guardar'),
-                ),
-              ],
-            ),
-          ],
+                    Navigator.pop(context);
+                  }
+                },
+                textButton1: 'Cancelar',
+                textButton2: 'Guardar',
+                colorButton1: const Color.fromARGB(204, 173, 173, 178),
+                colorButton2: const Color.fromARGB(255, 34, 184, 197),
+                spacing: 10,
+                width: 0.3,
+                height: 50,
+              ),
+            ],
+          ),
         ),
       ),
     );

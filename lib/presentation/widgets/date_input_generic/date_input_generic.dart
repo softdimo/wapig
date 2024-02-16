@@ -27,6 +27,7 @@ class _DateInputGenericState extends State<DateInputGeneric> {
         )) ??
         DateTime.now();
 
+    // ignore: unnecessary_null_comparison
     if (picked != null && picked != _selectedDate) {
       setState(() {
         _selectedDate = picked;
