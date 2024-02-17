@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:wapig/presentation/widgets/buttons/buttons.dart';
 import 'package:wapig/presentation/widgets/date_input_generic/date_input_generic.dart';
@@ -22,15 +24,34 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
   DateTime? selectedDate;
   final _formKey = GlobalKey<FormState>();
   final String msgError = '';
-  bool isChecked = true;
+  //bool isChecked = true;
+  String selectedValueFrom = '';
+  String selectedValueTo = '';
+  bool allFieldsOk = false;
 
   void onValue(String value) {}
+
+  void _handleSelectedValue(String? value, String dropdownLabel) {
+    if (value != null) {
+      if (dropdownLabel == 'Desde:') {
+        setState(() {
+          selectedValueFrom = value;
+        });
+        print('Valor seleccionado en cuenta origen: $selectedValueFrom');
+      } else if (dropdownLabel == 'A:') {
+        setState(() {
+          selectedValueTo = value;
+        });
+        print('Valor seleccionado en cuenta destino: $selectedValueTo');
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    String textValueNumber = '';
-    String textValueNote = '';
+    //String textValueNumber = '';
+    //String textValueNote = '';
     return Dialog(
       backgroundColor: Colors.white,
       child: SizedBox(
@@ -48,11 +69,21 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
               ),
               Column(
                 children: [
-                  const InputSelectGeneric(hintText: 'Desde:'),
+                  InputSelectGeneric(
+                    hintText: 'Desde:',
+                    onValueChanged: (value) {
+                      _handleSelectedValue(value, 'Desde:');
+                    },
+                  ),
                   SizedBox(
                     height: size.height * 0.02,
                   ),
-                  const InputSelectGeneric(hintText: 'A:'),
+                  InputSelectGeneric(
+                    hintText: 'A:',
+                    onValueChanged: (value) {
+                      _handleSelectedValue(value, 'A:');
+                    },
+                  ),
                   SizedBox(
                     height: size.height * 0.02,
                   ),
@@ -76,16 +107,62 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
                       hintText: 'Agregar nota:'),
                 ],
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: size.height * 0.005,
+              ),
+              SizedBox(
+                child: allFieldsOk
+                    ? const Text('Todos los campos deben diligenciarse', style: TextStyle(color: Colors.red),)
+                    : Container(),
+              ),
+              SizedBox(
+                height: size.height * 0.005,
               ),
               ButtonsRow(
                 onPressed1: () => Navigator.pop(context),
-                onPressed2: () {
+                onPressed2: () => _formKey.currentState!.validate() &&
+                        _textController.text.isNotEmpty &&
+                        _textNoteController.text.isNotEmpty &&
+                        selectedDate != null &&
+                        selectedValueFrom.isNotEmpty &&
+                        selectedValueTo.isNotEmpty
+                    ? // Si todos los campos están llenos, realizar acciones
+                    {
+                        print('Valor ingresado: ${_textController.text}'),
+                        print('Fecha seleccionada: $selectedDate'),
+                        print('Texto ingresado: ${_textNoteController.text}'),
+                        print('Cuenta origen: $selectedValueFrom'),
+                        print('Cuenta destino: $selectedValueTo'),
+                        // Realizar otras acciones aquí, como enviar datos o navegar a otra pantalla
+                      }
+                    : setState(() {
+                        allFieldsOk = true;
+                      }),
+                /* showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Error'),
+                            content: const Text(
+                                'Debes completar todos los campos para guardar.'),
+                            actions: <Widget>[
+                              TextButton(
+                                child: const Text('Aceptar'),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ],
+                          );
+                        }), */
+
+                /* () {
                   ///if (_formKey.currentState!.validate()) {
                   if (_textController.text.isNotEmpty &&
                       _textNoteController.text.isNotEmpty &&
-                      selectedDate != null) {
+                      selectedDate != null &&
+                      selectedValueFrom.isNotEmpty &&
+                      selectedValueTo.isNotEmpty) {
                     // La validación del formulario es exitosa
                     setState(() {
                       textValueNumber = _textController.text;
@@ -99,7 +176,7 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
                     focusNode.requestFocus();
                     Navigator.pop(context);
                   }
-                },
+                }, */
                 textButton1: 'Cancelar',
                 textButton2: 'Guardar',
                 colorButton1: const Color.fromARGB(204, 173, 173, 178),
@@ -115,10 +192,10 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
     );
   }
 
-  void onFieldSubmitted(value) {
+  /* void onFieldSubmitted(value) {
     print('Valor en onFieldSubmitted: $value');
     onValue(value);
     _textController.clear();
     focusNode.requestFocus();
-  }
+  } */
 }
