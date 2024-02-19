@@ -133,6 +133,7 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
                         print('Texto ingresado: ${_textNoteController.text}'),
                         print('Cuenta origen: $selectedValueFrom'),
                         print('Cuenta destino: $selectedValueTo'),
+                        Navigator.pop(context)
                         // Realizar otras acciones aquí, como enviar datos o navegar a otra pantalla
                       }
                     : setState(() {
