@@ -4,7 +4,7 @@ import 'package:wapig/presentation/screens/side_menu.dart';
 import 'package:wapig/presentation/widgets/single_count/single_count.dart';
 import 'package:wapig/presentation/widgets/title_text/title_name.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:image_picker_android/image_picker_android.dart';
+// import 'package:image_picker_android/image_picker_android.dart';
 
 import '../widgets/input_generic/input_generic.dart';
 import '../widgets/input_type_number/input_type_number.dart';
@@ -287,6 +287,36 @@ class _CuentasScreenState extends State<CuentasScreen> {
 
   // ================================================================
   // ================================================================
+
+  // ======================================================
+
+  // void _openGallery(BuildContext context) async {
+  //   var picture = await PickedFile.pickImage(source: ImageSource.gallery);
+  //   setState(() {
+  //     imageFile = picture;
+  //   });
+  //   Navigator.of(context).pop();
+  // }
+
+  // ======================================================
+
+  // void _openCamera(BuildContext context) async {
+  //   var picture = await ImagePicker.pickImage(source: ImageSource.camera);
+  //   setState(() {
+  //     imageFile = picture;
+  //   });
+  //   Navigator.of(context).pop();
+  // }
+
+  // ======================================================
+
+  // Widget _setImageView() {
+  //   if (imageFile != null) {
+  //     return Image.file(imageFile, width: 500, height: 500);
+  //   } else {
+  //     return Text("Please select an image");
+  //   }
+  // }
 
   /// Función para seleccionar imagen
   void _seleccionarImagen(BuildContext context) async {
