@@ -1,11 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:wapig/presentation/widgets/side_menu_item/side_menu_item.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class SideMenu extends StatefulWidget {
-
-  const SideMenu({
-    super.key
-  }); 
+  const SideMenu({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -31,7 +27,8 @@ class _SideMenuState extends State<SideMenu> {
                   backgroundImage: AssetImage('assets/images/perfil.png'),
                 ),
                 SizedBox(height: 10),
-                Text('Pablo Lara'),//Aqui se debe mostrar el nombre de usuario desde la BD
+                Text(
+                    'Pablo Lara'), //Aqui se debe mostrar el nombre de usuario desde la BD
               ],
             ),
           ),

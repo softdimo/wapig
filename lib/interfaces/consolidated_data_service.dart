@@ -1,4 +1,4 @@
-import 'package:wapig/models/consolidate_data.dart';
+import 'package:wapig/imports/barrel.dart';
 
 abstract class ConsolidatedDataService {
   Future<ConsolidatedData> getConsolidatedData();

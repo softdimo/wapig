@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:wapig/presentation/widgets/floatingButton/floating_button.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class FloatingButtonWithText extends StatelessWidget {
   final String text;
@@ -19,7 +18,6 @@ class FloatingButtonWithText extends StatelessWidget {
     required this.colorButtom,
     required this.colorIcon,
     required this.sizeIcon,
-
   });
 
   @override
@@ -49,4 +47,3 @@ class FloatingButtonWithText extends StatelessWidget {
     );
   }
 }
-

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/home_screen.dart';
-import 'package:wapig/presentation/screens/side_menu.dart';
-import 'package:wapig/presentation/widgets/title_text/title_name.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class AccionCuentaScreen extends StatefulWidget {
   const AccionCuentaScreen({Key? key}) : super(key: key);
@@ -27,7 +24,6 @@ class _AccionCuentaScreenState extends State<AccionCuentaScreen> {
           color: Colors.white,
           size: 35,
         ),
-        
       ),
       drawer: const SideMenu(),
       body: Container(
@@ -41,26 +37,24 @@ class _AccionCuentaScreenState extends State<AccionCuentaScreen> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     color: Colors.white,
-                    border:
-                        Border.all(color: const Color.fromARGB(204, 173, 173, 178))
-                ),
+                    border: Border.all(
+                        color: const Color.fromARGB(204, 173, 173, 178))),
                 height: size.height * 0.2,
                 width: size.width * 0.9,
                 child: Column(
                   children: [
                     TitleName(
-                      welcomeText: 'Cuenta personal',
-                      fontSize: 20,
-                      paddingTop: 0,
-                      paddingBottom: 10,
-                      onPressed: () {
-                        /* Navigator.push(
+                        welcomeText: 'Cuenta personal',
+                        fontSize: 20,
+                        paddingTop: 0,
+                        paddingBottom: 10,
+                        onPressed: () {
+                          /* Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const AccionCuentaScreen()),
                         ); */
-                      }
-                    ),
+                        }),
                   ],
                 ),
               ),
@@ -70,6 +64,7 @@ class _AccionCuentaScreenState extends State<AccionCuentaScreen> {
       ),
     );
   }
+
   void onItemSelected(int index) {
     if (index == 0) {
       Navigator.pushReplacement(
@@ -85,4 +80,3 @@ class _AccionCuentaScreenState extends State<AccionCuentaScreen> {
     }
   }
 }
-

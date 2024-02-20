@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class DateInputGeneric extends StatefulWidget {
   final ValueChanged<DateTime?> onDateSelected;
@@ -27,6 +27,7 @@ class _DateInputGenericState extends State<DateInputGeneric> {
         )) ??
         DateTime.now();
 
+    // ignore: unnecessary_null_comparison
     if (picked != null && picked != _selectedDate) {
       setState(() {
         _selectedDate = picked;

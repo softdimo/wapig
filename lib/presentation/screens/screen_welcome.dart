@@ -1,7 +1,4 @@
-import 'dart:async';
-import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/logos_welcome.dart';
-import 'package:wapig/presentation/screens/login.dart'; // Assuming renamed
+import 'package:wapig/imports/barrel.dart';
 
 class ScreenWelcome extends StatefulWidget {
   const ScreenWelcome({super.key});
@@ -12,7 +9,7 @@ class ScreenWelcome extends StatefulWidget {
 }
 
 class _ScreenWelcomeState extends State<ScreenWelcome> {
-  late Timer? _timer;//Averiguar
+  late Timer? _timer; //Averiguar
 
   @override
   void initState() {

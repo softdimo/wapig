@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class RegistroScreen extends StatefulWidget {
   const RegistroScreen({super.key});

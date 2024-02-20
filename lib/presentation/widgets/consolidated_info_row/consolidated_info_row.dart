@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:wapig/presentation/widgets/title_text/title_name.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class ConsolidatedInfoRow extends StatelessWidget {
   final String label;
@@ -7,7 +6,7 @@ class ConsolidatedInfoRow extends StatelessWidget {
   final Color valueColor;
 
   const ConsolidatedInfoRow({
-    super.key, 
+    super.key,
     required this.label,
     required this.value,
     required this.valueColor,

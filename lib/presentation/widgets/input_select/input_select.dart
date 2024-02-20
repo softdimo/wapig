@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 
 class InputSelectGeneric extends StatefulWidget {
   final String hintText;
-  const InputSelectGeneric({super.key, required this.hintText});
+  final Function(String? value) onValueChanged;
+
+  const InputSelectGeneric(
+      {super.key, 
+      required this.hintText, 
+      required this.onValueChanged
+      }
+    );
 
   @override
   State<InputSelectGeneric> createState() => _InputSelectGenericState();
@@ -51,13 +58,13 @@ class _InputSelectGenericState extends State<InputSelectGeneric> {
                           color: Colors.grey)), // Deshabilitar la opción
                 ),
                 DropdownMenuItem(
-                    value: 'cuenta1',
+                    value: 'bancolombia',
                     child: Text(
                       'Bancolombia',
                       style: TextStyle(fontSize: 19),
                     )),
                 DropdownMenuItem(
-                    value: 'cuenta2',
+                    value: 'billetera',
                     child: Text('Billetera', style: TextStyle(fontSize: 19)))
                 // ... otras opciones
               ],
@@ -65,10 +72,10 @@ class _InputSelectGenericState extends State<InputSelectGeneric> {
                 setState(() {
                   selectedValue = value; // Actualizar la variable de estado
                 });
-
+                widget.onValueChanged(value);
                 // Manejar la selección del elemento aquí
                 // ignore: avoid_print
-                print('Se seleccionó la cuenta: $value');
+                //print('Se seleccionó la cuenta: $value');
               },
             ),
           )),

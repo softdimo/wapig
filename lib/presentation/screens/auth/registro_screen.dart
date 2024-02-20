@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/login.dart';
-import 'package:wapig/presentation/widgets/buttons/buttons.dart';
-import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
-import 'package:wapig/presentation/widgets/input_generic/input_generic_password.dart';
-import 'package:wapig/presentation/widgets/single_button/single_button.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class RegistroScreen extends StatefulWidget {
   const RegistroScreen({super.key});
@@ -94,7 +89,7 @@ class _RegistroScreenState extends State<RegistroScreen> {
 
                 // Inputs
                 const InputGeneric(
-                  fontSizeText: 20, 
+                  fontSizeText: 20,
                   textHint: 'Correo electrónico',
                   width: 0.8,
                   height: 0.06,
@@ -111,7 +106,7 @@ class _RegistroScreenState extends State<RegistroScreen> {
                   textHint: 'Contraseña',
                   iconType: Icons.lock,
                 ),
-                
+
                 // =====================================
 
                 const SizedBox(height: 30),
@@ -123,7 +118,7 @@ class _RegistroScreenState extends State<RegistroScreen> {
                   textHint: 'Confirmar Contraseña',
                   iconType: Icons.lock,
                 ),
-                
+
                 // =====================================
 
                 const SizedBox(height: 30),
