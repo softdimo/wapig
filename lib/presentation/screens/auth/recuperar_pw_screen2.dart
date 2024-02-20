@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/auth/login.dart';
-import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
-import 'package:wapig/presentation/widgets/input_generic/input_generic_password.dart';
-import 'package:wapig/presentation/widgets/logo_image/logo_image.dart';
-import 'package:wapig/presentation/widgets/single_button/single_button.dart';
-import 'package:flutter/gestures.dart';
-import 'package:wapig/presentation/widgets/title_text/title_name.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class RecuperarPwScreen2 extends StatefulWidget {
   const RecuperarPwScreen2({super.key});
@@ -26,7 +19,8 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
         // padding: const EdgeInsets.fromLTRB(30, 80, 30, 30),
         padding: EdgeInsetsGeometry.lerp(
           EdgeInsets.zero,
-          EdgeInsets.fromLTRB(25, size.width * 0.70, 25, size.width * 0.20), 0.4,
+          EdgeInsets.fromLTRB(25, size.width * 0.70, 25, size.width * 0.20),
+          0.4,
         )!,
 
         // ==========================================================
@@ -45,75 +39,76 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
               ),
               // Logo
               const LogoImage(width: 0.3),
-              
+
               const TitleName(
                 welcomeText: 'wapig',
-                  paddingTop: 0,
-                  paddingBottom: 0,
-                  fontSize: 36,
-                ),
+                paddingTop: 0,
+                paddingBottom: 0,
+                fontSize: 36,
+              ),
               const SizedBox(height: 10),
 
               // =================================================
 
               const TitleName(
                 welcomeText: 'Recuperar contraseña',
-                  paddingTop: 0,
-                  paddingBottom: 0,
-                  fontSize: 20,
-                ),
+                paddingTop: 0,
+                paddingBottom: 0,
+                fontSize: 20,
+              ),
 
               const SizedBox(height: 10),
 
               // =================================================
               const TitleName(
-                welcomeText: 'Digita el código que fue enviado a tu dirección de correo electrónico',
-                  paddingTop: 0,
-                  paddingBottom: 0,
-                  paddingLeft: 20,
-                  fontSize: 14,
-                ),
+                welcomeText:
+                    'Digita el código que fue enviado a tu dirección de correo electrónico',
+                paddingTop: 0,
+                paddingBottom: 0,
+                paddingLeft: 20,
+                fontSize: 14,
+              ),
 
               // ============================
-              
+
               const SizedBox(height: 20),
 
               // ============================
 
               // Inputs
               const InputGeneric(
-                fontSizeText: 20, 
+                fontSizeText: 20,
                 textHint: 'Ingrese código',
                 width: 0.8,
                 height: 0.06,
                 iconType: Icons.emergency,
               ),
-              
+
               // ============================
-              
+
               const SizedBox(height: 20),
 
               // ============================
 
               const InputGeneric(
-                fontSizeText: 20, 
+                fontSizeText: 20,
                 textHint: 'Correo electrónico',
                 width: 0.8,
                 height: 0.06,
               ),
-              
+
               // ============================
-              
+
               const SizedBox(height: 20),
 
               // ============================
-              
+
               const InputGenericPassword(
                 fontSizeText: 20,
                 textHint: 'Contraseña',
                 iconType: Icons.lock,
               ),
-              
+
               // ============================
 
               const SizedBox(height: 20),
@@ -125,7 +120,7 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
                 textHint: 'Confirmar Contraseña',
                 iconType: Icons.lock,
               ),
-              
+
               // ============================
 
               // ============================
@@ -149,10 +144,10 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
               // Texto de "ya tienes tu contraseña"
               const TitleName(
                 welcomeText: '¿Ya tienes tu contraseña?',
-                  paddingTop: 0,
-                  paddingBottom: 0,
-                  fontSize: 19,
-                ),
+                paddingTop: 0,
+                paddingBottom: 0,
+                fontSize: 19,
+              ),
 
               RichText(
                 text: TextSpan(
@@ -171,23 +166,22 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
                         color: Colors.blue, // Color azul para "click aquí"
                       ),
                       recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const LoginScreen()),
-                        );
-                      },
+                        ..onTap = () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()),
+                          );
+                        },
                     ),
                     const TextSpan(
                       text: ' para iniciar sesión',
                     ),
                   ],
-                  
                 ),
               ),
 
               const SizedBox(height: 10),
-
             ],
           ),
         ),

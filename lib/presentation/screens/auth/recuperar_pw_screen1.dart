@@ -1,9 +1,4 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/auth/login.dart';
-import 'package:wapig/presentation/screens/auth/recuperar_pw_screen2.dart';
-import 'package:wapig/presentation/widgets/input_generic/input_generic.dart';
-import 'package:wapig/presentation/widgets/single_button/single_button.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class RecuperarPwScreen1 extends StatefulWidget {
   const RecuperarPwScreen1({super.key});
@@ -24,7 +19,8 @@ class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
         // padding: const EdgeInsets.fromLTRB(30, 80, 30, 30),
         padding: EdgeInsetsGeometry.lerp(
           EdgeInsets.zero,
-          EdgeInsets.fromLTRB(25, size.width * 0.90, 25, size.width * 0.20), 0.4,
+          EdgeInsets.fromLTRB(25, size.width * 0.90, 25, size.width * 0.20),
+          0.4,
         )!,
 
         // ==========================================================
@@ -87,14 +83,14 @@ class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
               ),
 
               // =====================================
-              
+
               const SizedBox(height: 30),
 
               // =====================================
-              
+
               // Inputs
               const InputGeneric(
-                fontSizeText: 20, 
+                fontSizeText: 20,
                 textHint: 'Correo electrónico',
                 width: 0.8,
                 height: 0.06,
@@ -111,7 +107,8 @@ class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const RecuperarPwScreen2()),
+                    MaterialPageRoute(
+                        builder: (context) => const RecuperarPwScreen2()),
                   );
                 },
                 textButton: 'Obtener Código',
@@ -122,7 +119,7 @@ class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
               const SizedBox(height: 30),
 
               // =====================================
-              
+
               // Texto de "ya tienes tu contraseña"
               RichText(
                 text: TextSpan(
@@ -141,12 +138,13 @@ class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
                         color: Colors.blue, // Color azul para "click aquí"
                       ),
                       recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const LoginScreen()),
-                        );
-                      },
+                        ..onTap = () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()),
+                          );
+                        },
                     ),
                     const TextSpan(
                       text: ' para iniciar sesión',

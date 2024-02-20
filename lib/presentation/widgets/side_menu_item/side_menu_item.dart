@@ -1,17 +1,20 @@
-import 'package:flutter/material.dart';
-import 'package:wapig/presentation/screens/accion_cuenta_screen.dart';
-import 'package:wapig/presentation/screens/home_screen.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class SideMenuItems {
   static List<ListTile> getItems() {
     return [
       const ListTile(
-        leading: Icon(Icons.home_outlined, size: 30,),
-        title: Text('Vista principal', style: TextStyle(fontWeight: FontWeight.w400)),
+        leading: Icon(
+          Icons.home_outlined,
+          size: 30,
+        ),
+        title: Text('Vista principal',
+            style: TextStyle(fontWeight: FontWeight.w400)),
       ),
       const ListTile(
         leading: Icon(Icons.repeat, size: 30),
-        title: Text('Movimientos', style: TextStyle(fontWeight: FontWeight.w400)),
+        title:
+            Text('Movimientos', style: TextStyle(fontWeight: FontWeight.w400)),
       ),
       const ListTile(
         leading: Icon(Icons.account_balance_outlined, size: 30),
@@ -23,11 +26,13 @@ class SideMenuItems {
       ),
       const ListTile(
         leading: Icon(Icons.credit_card, size: 30),
-        title: Text('Trajetas de crédito', style: TextStyle(fontWeight: FontWeight.w400)),
+        title: Text('Trajetas de crédito',
+            style: TextStyle(fontWeight: FontWeight.w400)),
       ),
       const ListTile(
         leading: Icon(Icons.settings_outlined, size: 30),
-        title: Text('Configuración', style: TextStyle(fontWeight: FontWeight.w400)),
+        title: Text('Configuración',
+            style: TextStyle(fontWeight: FontWeight.w400)),
       ),
     ];
   }
@@ -41,7 +46,7 @@ class SideMenuItems {
         );
         break;
       case 1:
-      //TODO
+        //TODO
         break;
       case 2:
         Navigator.pushReplacement(
@@ -50,13 +55,13 @@ class SideMenuItems {
         );
         break;
       case 3:
-      //TODO
+        //TODO
         break;
       case 4:
-      //TODO
+        //TODO
         break;
       case 5:
-      //TODO
+        //TODO
         break;
       default:
     }

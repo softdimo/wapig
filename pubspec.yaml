@@ -39,6 +39,7 @@ dependencies:
   flutter_platform_widgets: ^6.0.2
   font_awesome_flutter: ^9.2.0
   http: ^1.2.0
+  image_picker: ^1.0.7
   intl: ^0.18.1
   provider: ^6.1.1
 

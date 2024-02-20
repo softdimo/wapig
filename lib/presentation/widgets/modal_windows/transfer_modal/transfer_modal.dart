@@ -1,12 +1,4 @@
-// ignore_for_file: avoid_print
-
-import 'package:flutter/material.dart';
-import 'package:wapig/presentation/widgets/buttons/buttons.dart';
-import 'package:wapig/presentation/widgets/date_input_generic/date_input_generic.dart';
-import 'package:wapig/presentation/widgets/input_select/input_select.dart';
-import 'package:wapig/presentation/widgets/input_type_number/input_type_number.dart';
-import 'package:wapig/presentation/widgets/input_type_text_generic/input_type_text_generic.dart';
-import 'package:wapig/presentation/widgets/title_text/title_name.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class ModalWindowTransfer extends StatefulWidget {
   const ModalWindowTransfer({super.key});
@@ -17,6 +9,9 @@ class ModalWindowTransfer extends StatefulWidget {
 
 class _ModalWindowTransferState extends State<ModalWindowTransfer> {
   final _textController = TextEditingController();
+  final String photoRoute =
+      '/assets/uploaded_images'; //Ruta de donde se cargarán las fotos
+
   // ignore: unused_field
   final _dateController = TextEditingController();
   final _textNoteController = TextEditingController();
@@ -47,6 +42,16 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
     }
   }
 
+  Future<void> tomarFoto() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.camera);
+
+    if (image != null) {
+      final File foto = File(image.path);
+      await foto.copy(photoRoute);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -56,7 +61,7 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
       backgroundColor: Colors.white,
       child: SizedBox(
         width: size.width * 0.8,
-        height: size.height * 0.5,
+        height: size.height * 0.6,
         child: Form(
           key: _formKey,
           child: Column(
@@ -112,12 +117,21 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
               ),
               SizedBox(
                 child: allFieldsOk
-                    ? const Text('Todos los campos deben diligenciarse', style: TextStyle(color: Colors.red),)
+                    ? const Text(
+                        'Todos los campos deben diligenciarse',
+                        style: TextStyle(color: Colors.red),
+                      )
                     : Container(),
               ),
               SizedBox(
                 height: size.height * 0.005,
               ),
+              IconButton.outlined(
+                  onPressed: () {
+                    tomarFoto();
+                  }, 
+                  icon: const Icon(Icons.camera_alt)),
+
               ButtonsRow(
                 onPressed1: () => Navigator.pop(context),
                 onPressed2: () => _formKey.currentState!.validate() &&

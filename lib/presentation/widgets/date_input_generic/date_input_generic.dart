@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:wapig/imports/barrel.dart';
 
 class DateInputGeneric extends StatefulWidget {
   final ValueChanged<DateTime?> onDateSelected;
