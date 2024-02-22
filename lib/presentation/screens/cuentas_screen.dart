@@ -1,14 +1,5 @@
-import 'package:flutter/material.dart'; 
-import 'package:wapig/presentation/screens/home_screen.dart';
-import 'package:wapig/presentation/screens/side_menu.dart';
+import 'package:wapig/imports/barrel.dart';
 import 'package:wapig/presentation/widgets/single_count/single_count.dart';
-import 'package:wapig/presentation/widgets/title_text/title_name.dart';
-import 'package:image_picker/image_picker.dart';
-// import 'package:image_picker_android/image_picker_android.dart';
-
-import '../widgets/input_generic/input_generic.dart';
-import '../widgets/input_type_number/input_type_number.dart';
-
 
 class CuentasScreen extends StatefulWidget {
   const CuentasScreen({Key? key}) : super(key: key);
