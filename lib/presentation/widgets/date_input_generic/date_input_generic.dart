@@ -23,7 +23,7 @@ class _DateInputGenericState extends State<DateInputGeneric> {
           context: context,
           initialDate: _selectedDate ?? DateTime.now(),
           firstDate: DateTime(2000),
-          lastDate: DateTime(2101),
+          lastDate: DateTime(2101)
         )) ??
         DateTime.now();
 
@@ -58,7 +58,7 @@ class _DateInputGenericState extends State<DateInputGeneric> {
                 onTap: () => _selectDate(context),
                 decoration: const InputDecoration(
                   border: InputBorder.none,
-                  hintStyle: TextStyle(color: Colors.grey),
+                  hintStyle: TextStyle(color: Colors.grey, fontSize: 19),
                   hintText: 'Fecha:',
                   suffixIcon: Icon(Icons.calendar_month_rounded),
                 ),

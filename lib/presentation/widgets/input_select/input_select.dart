@@ -34,7 +34,7 @@ class _InputSelectGenericState extends State<InputSelectGeneric> {
             border: Border.all(color: const Color.fromARGB(204, 173, 173, 178)),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 10),
+            padding: EdgeInsets.only(left: size.width * 0.03),
             child: DropdownButton(
               dropdownColor: Colors.white,
               borderRadius: const BorderRadius.all(Radius.circular(10)),
@@ -44,9 +44,9 @@ class _InputSelectGenericState extends State<InputSelectGeneric> {
                 hinText,
                 style: const TextStyle(fontSize: 19, color: Colors.grey),
               ),
-              icon: const Padding(
-                padding: EdgeInsets.only(left: 80),
-                child: Icon(Icons.arrow_drop_down),
+              icon:  Padding(
+                padding: EdgeInsets.only(left: size.width * 0.25),
+                child: const Icon(Icons.arrow_drop_down),
               ),
               iconSize: 24,
               items: const [
