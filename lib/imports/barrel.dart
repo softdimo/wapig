@@ -32,6 +32,10 @@ export 'dart:async';
 export 'package:wapig/presentation/screens/accion_cuenta_screen.dart';
 export 'package:image_picker/image_picker.dart';
 export 'dart:io';
+export 'package:path_provider/path_provider.dart';
+export 'dart:typed_data';
+export 'package:wapig/presentation/widgets/take_photo/take_photo.dart';
+
 
 
 

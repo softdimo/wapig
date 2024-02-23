@@ -10,7 +10,7 @@ class ModalWindowTransfer extends StatefulWidget {
 class _ModalWindowTransferState extends State<ModalWindowTransfer> {
   final _textController = TextEditingController();
   final String photoRoute =
-      '/assets/uploaded_images'; //Ruta de donde se cargarán las fotos
+      '/uploaded_images/'; //Ruta de donde se cargarán las fotos
 
   // ignore: unused_field
   final _dateController = TextEditingController();
@@ -42,14 +42,32 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
     }
   }
 
+  Future<void> crearDirectorio() async {
+    final directory = Directory(photoRoute);
+    if (!await directory.exists()) {
+       directory.create(recursive: true);
+    }
+  }
+
+  Future<void> guardarFoto(XFile image) async {
+    await crearDirectorio();
+    final String path = '$photoRoute${image.name}';
+    final File foto = File(path);
+    await foto.writeAsBytes(
+        await image.readAsBytes()); // Usa writeAsBytes para escribir la foto
+  }
+
   Future<void> tomarFoto() async {
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.camera);
 
     if (image != null) {
+      await guardarFoto(image);
+    }
+    /* if (image != null) {
       final File foto = File(image.path);
       await foto.copy(photoRoute);
-    }
+    } */
   }
 
   @override
@@ -129,9 +147,8 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
               IconButton.outlined(
                   onPressed: () {
                     tomarFoto();
-                  }, 
+                  },
                   icon: const Icon(Icons.camera_alt)),
-
               ButtonsRow(
                 onPressed1: () => Navigator.pop(context),
                 onPressed2: () => _formKey.currentState!.validate() &&

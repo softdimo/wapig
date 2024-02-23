@@ -19,6 +19,8 @@ class _MyHomePageState extends State<MyHomePage> {
     egresos: 0,
     saldo: 0,
   );
+  File? image;
+  String? imagePath;
 
   void _showModalDialog() {
     setState(() {
@@ -36,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     _fetchConsolidatedData();
+    image;
   }
 
   Future<void> _fetchConsolidatedData() async {
@@ -49,19 +52,21 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _showTransferModal(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return const ModalWindowTransfer();
-    },
-  );
-}
-
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return const ModalWindowTransfer();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final List<ListTile> items = SideMenuItems.getItems();
     final size = MediaQuery.of(context).size;
+    ImageProvider? imageProvider;
+    image != null ? imageProvider = FileImage(image!) : null;
+
     return GestureDetector(
         onTap: () {
           setState(() => isClicked = false);
@@ -97,20 +102,36 @@ class _MyHomePageState extends State<MyHomePage> {
           drawer: Drawer(
             child: ListView(
               children: [
-                const DrawerHeader(
-                  //padding: EdgeInsets.only(top: 0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      CircleAvatar(
-                        radius: 50,
-                        backgroundImage: AssetImage('assets/images/perfil.png'),
+                DrawerHeader(
+                  padding: const EdgeInsets.only(top: 0),
+                  child: Stack(children: [
+                    Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
+                            radius: 50,
+                            backgroundImage: imageProvider ?? const AssetImage('assets/images/perfil.png'),
+                          ),
+
+                          const SizedBox(height: 30),
+                          const Text(
+                              'Pablo Lara'), //Aqui se debe mostrar el nombre de usuario desde la BD
+                        ],
                       ),
-                      SizedBox(height: 10),
-                      Text(
-                          'Pablo Lara'), //Aqui se debe mostrar el nombre de usuario desde la BD
-                    ],
-                  ),
+                    ),
+                    Positioned(
+                      right: size.width * 0.27,
+                      bottom: 15,
+                      child: TakePhoto(
+                        onImageFile: (imagePicked) {
+                          setState(() {
+                            image = imagePicked;
+                          });
+                        },
+                      ),
+                    ),
+                  ]),
                 ),
                 for (int i = 0; i < items.length; i++)
                   ListTile(
@@ -163,6 +184,25 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                   ),
+                ),
+              ),
+              /* if(imagePath != null)
+                Image.file(File(imagePath!)), */
+
+              Positioned(
+                right: size.width * 0.27,
+                bottom: 15,
+                child: TakePhoto(
+                  /* onImagePicked: (pickedImage) {
+                          setState(() {
+                            image = pickedImage;
+                          });
+                        }, */
+                  onImageFile: (imagePath) {
+                    setState(() {
+                      imagePath = imagePath;
+                    });
+                  },
                 ),
               ),
               Positioned(
