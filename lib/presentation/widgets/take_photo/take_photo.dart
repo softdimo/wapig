@@ -2,12 +2,13 @@ import 'dart:typed_data';
 
 //import 'package:image/image.dart';
 import 'package:wapig/imports/barrel.dart';
+import 'package:wapig/services/select_image/select_image/select_image.dart';
 
 class TakePhoto extends StatefulWidget {
   //final Function(Uint8List?) onImagePicked;
-  final Function(File?) onImageFile;
+  //final Function(File?) onImageFile;
+  final Function(XFile?) onImageFile;
   Uint8List? image;
-  
 
   TakePhoto({super.key, required this.onImageFile});
 
@@ -20,15 +21,23 @@ class _TakePhotoState extends State<TakePhoto> {
   File? imageFile;
   //String? imagePath;
 
-  void _pickImage(ImageSource source) async {
+  /* void _pickImage(ImageSource source, BuildContext context) async {
     final pickedFile = await ImagePicker().pickImage(source: source);
+
     if (pickedFile != null) {
+      /* final imageFile2 = File(pickedFile.path);
+      final appDirectory = await getApplicationDocumentsDirectory();
+      //print('directorio: $appDirectory');
+      final newImagePath = '${appDirectory.path}/captured_image.jpg';
+
+      await imageFile2.copy(newImagePath); */
+
       setState(() {
+        //widget.onImageFile(File(newImagePath));
         imageFile = File(pickedFile.path);
         widget.onImageFile(imageFile);
+        Navigator.of(context).pop();
       });
-      Navigator.of(context).pop();
-
 
       /* setState(() {
         widget.onImagePicked(resizedBytes);
@@ -36,12 +45,11 @@ class _TakePhotoState extends State<TakePhoto> {
         Navigator.of(context).pop();
       }); */
     }
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      
       icon: const Icon(Icons.add_a_photo_rounded),
       onPressed: () => showImagePickerOption(context),
       //child: const Text('Seleccionar imagen'),
@@ -59,8 +67,13 @@ class _TakePhotoState extends State<TakePhoto> {
               children: [
                 Expanded(
                   child: InkWell(
-                    onTap: () {
-                      _pickImage(ImageSource.gallery);
+                    onTap: () async {
+                      final imagenGallery = await getImage(ImageSource.gallery);
+                      widget.onImageFile(imagenGallery);
+                      setState(() {
+                        imageFile = File(imagenGallery!.path);
+                      });
+                      //_pickImage(ImageSource.gallery, context);
                     },
                     child: const SizedBox(
                       child: Column(
@@ -74,8 +87,14 @@ class _TakePhotoState extends State<TakePhoto> {
                 ),
                 Expanded(
                   child: InkWell(
-                    onTap: () {
-                      _pickImage(ImageSource.camera);
+                    onTap: () async {
+                      final imagenCamera = await getImage(ImageSource.camera);
+                      widget.onImageFile(imagenCamera);
+                      setState(() {
+                        imageFile = File(imagenCamera!.path);
+                      });
+
+                      //_pickImage(ImageSource.camera, context);
                     },
                     child: const SizedBox(
                       child: Column(
@@ -95,62 +114,4 @@ class _TakePhotoState extends State<TakePhoto> {
           );
         });
   }
-
-  /* Future<void> _pickImageFromGallery() async {
-    try {
-      final returnImage = await ImagePicker().pickImage(source: ImageSource.gallery);
-
-      if (returnImage == null) return;
-
-      // Decode and resize image (optional)
-      final imageBytes = await decodeImage(await returnImage.readAsBytes());
-      Uint8List? resizedBytes;
-      if (imageBytes != null) {
-        //final resizedImage = copyResize(imageBytes, width: 200, height: 200);
-        resizedBytes = Uint8List.fromList(imageBytes.getBytes());
-      }
-
-      // Get a suitable path to save the image
-      final appDir = await getApplicationDocumentsDirectory();
-      final filename = '${DateTime.now().millisecondsSinceEpoch}.jpg';
-      imagePath = '${appDir.path}/$filename';
-
-      // Save the image to the path
-      final imageFile = File(imagePath!);
-      await imageFile.writeAsBytes(resizedBytes ?? await returnImage.readAsBytes());
-
-      setState(() {
-        widget.onImagePicked(resizedBytes);
-        widget.onImagePath(imagePath);
-        Navigator.of(context).pop();
-      });
-    } catch (e) {
-      print('Error al seleccionar la imagen: $e');
-    }
-  } */
-
-  /* Future<void> _pickImageFromGallery() async {
-    try {
-      final returnImage =
-          await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (returnImage == null) return;
-      widget.imageFile = File(returnImage.path);
-      final imageBytes = await decodeImage(await returnImage.readAsBytes());
-      final resizedImage = copyResize(imageBytes, width: 200, height: 200);
-      final resizedBytes = Uint8List.fromList(resizedImage.getBytes());
-      
-      //final imageBytes = await returnImage.readAsBytes();
-      setState(() {
-        widget.onImagePicked(widget.image);
-        Navigator.of(context).pop();
-        /* imageFile = File(returnImage.path);
-      widget.onImagePicked(File(returnImage.path).readAsBytesSync());
-      Navigator.of(context).pop(); */
-      });
-    } catch (e) {
-      print('Error al seleccionar la imagen: $e');
-    }
-  } */
-
-  //TODO falta terminar la lógica de la instancia a la clase con el atributo  widget.image
 }
