@@ -5,7 +5,7 @@ class DiscoverProvider extends ChangeNotifier {
   bool initialLoading = true; //Bandera de carga de aplicación
  
   Future<void> loadNextpage() async {
-    await Future.delayed(const Duration(milliseconds: 500));
+    await Future.delayed(const Duration(milliseconds: 100));
 
     initialLoading = false;
     notifyListeners();

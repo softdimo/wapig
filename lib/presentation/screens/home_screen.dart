@@ -19,7 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
     egresos: 0,
     saldo: 0,
   );
-  File? image;
+  //XFile? image;
   String? imagePath;
 
   void _showModalDialog() {
@@ -38,7 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     _fetchConsolidatedData();
-    image;
+    //image;
+    //ImageSingleton().setImage(image);
   }
 
   Future<void> _fetchConsolidatedData() async {
@@ -64,8 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final List<ListTile> items = SideMenuItems.getItems();
     final size = MediaQuery.of(context).size;
-    ImageProvider? imageProvider;
-    image != null ? imageProvider = FileImage(image!) : null;
+    ImageProvider imageDefault = AssetImage('assets/images/perfil.png');
+    //ImageSingleton imageSingleton = Provider.of<ImageSingleton>(context);
+    //image != null ? imageDefault = FileImage(image!) : null;
 
     return GestureDetector(
         onTap: () {
@@ -111,7 +113,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           CircleAvatar(
                             radius: 50,
-                            backgroundImage: imageProvider ?? const AssetImage('assets/images/perfil.png'),
+                            backgroundImage: ImageSingleton.notifier.image != null
+                                ? FileImage(File(ImageSingleton.notifier.image!.path))
+                                : imageDefault,
                           ),
 
                           const SizedBox(height: 30),
@@ -125,9 +129,10 @@ class _MyHomePageState extends State<MyHomePage> {
                       bottom: 15,
                       child: TakePhoto(
                         onImageFile: (imagePicked) {
-                          setState(() {
-                            image = imagePicked;
-                          });
+                          //setState(() {
+                            ImageSingleton.notifier.setImage(imagePicked);
+                            Navigator.of(context).pop();
+                         // });
                         },
                       ),
                     ),
@@ -184,25 +189,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       ],
                     ),
                   ),
-                ),
-              ),
-              /* if(imagePath != null)
-                Image.file(File(imagePath!)), */
-
-              Positioned(
-                right: size.width * 0.27,
-                bottom: 15,
-                child: TakePhoto(
-                  /* onImagePicked: (pickedImage) {
-                          setState(() {
-                            image = pickedImage;
-                          });
-                        }, */
-                  onImageFile: (imagePath) {
-                    setState(() {
-                      imagePath = imagePath;
-                    });
-                  },
                 ),
               ),
               Positioned(

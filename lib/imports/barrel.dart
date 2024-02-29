@@ -35,7 +35,8 @@ export 'dart:io';
 export 'package:path_provider/path_provider.dart';
 export 'dart:typed_data';
 export 'package:wapig/presentation/widgets/take_photo/take_photo.dart';
-
+export 'package:wapig/services/image_singleton/image_singleton.dart';
+export 'package:wapig/presentation/screens/screen_welcome.dart';
 
 
 
