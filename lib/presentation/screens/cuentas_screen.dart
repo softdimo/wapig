@@ -1,5 +1,4 @@
 import 'package:wapig/imports/barrel.dart';
-import 'package:wapig/presentation/widgets/single_count/single_count.dart';
 
 class CuentasScreen extends StatefulWidget {
   const CuentasScreen({super.key});
