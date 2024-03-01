@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:wapig/presentation/provider/discover_provider.dart';
-import 'package:wapig/presentation/screens/screen_welcome.dart';
+import 'package:wapig/imports/barrel.dart';
+
 
 void main() => runApp(
       ChangeNotifierProvider(
-        create: (context) => DiscoverProvider(),
+        create: (context) => ImageNotifier(),
         child: const MyApp(),
       ),
     );
