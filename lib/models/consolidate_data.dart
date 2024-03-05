@@ -12,6 +12,7 @@ class ConsolidatedData {
   });
 
   static Future<ConsolidatedData> fromApi() async {
+
     final apiData = await _getConsolidatedDataFromApi();
 
     return ConsolidatedData(
@@ -22,6 +23,7 @@ class ConsolidatedData {
   }
 
   static Future<ConsolidatedData> _getConsolidatedDataFromApi() async {
+    
     final consolidatedDataService = ConsolidatedDataServiceImpl();
     final consolidatedData =
         await consolidatedDataService.getConsolidatedData();

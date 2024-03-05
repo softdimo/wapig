@@ -38,8 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     _fetchConsolidatedData();
-    //image;
-    //ImageSingleton().setImage(image);
   }
 
   Future<void> _fetchConsolidatedData() async {
@@ -66,8 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
     final List<ListTile> items = SideMenuItems.getItems();
     final size = MediaQuery.of(context).size;
     ImageProvider imageDefault = AssetImage('assets/images/perfil.png');
-    //ImageSingleton imageSingleton = Provider.of<ImageSingleton>(context);
-    //image != null ? imageDefault = FileImage(image!) : null;
 
     return GestureDetector(
         onTap: () {

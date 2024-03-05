@@ -37,6 +37,12 @@ export 'dart:typed_data';
 export 'package:wapig/presentation/widgets/take_photo/take_photo.dart';
 export 'package:wapig/services/image_singleton/image_singleton.dart';
 export 'package:wapig/presentation/screens/screen_welcome.dart';
+export 'package:wapig/models/models_auth/user_model.dart';
+export 'package:wapig/services/login_service/login_service.dart';
+export 'package:wapig/controllers/login_controler.dart';
+
+
+
 
 
 

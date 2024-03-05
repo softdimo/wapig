@@ -8,6 +8,8 @@ class RecuperarPwScreen1 extends StatefulWidget {
 }
 
 class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     // Obtener las dimensiones de la pantalla
@@ -89,11 +91,12 @@ class _RecuperarPwScreenState1 extends State<RecuperarPwScreen1> {
               // =====================================
 
               // Inputs
-              const InputGeneric(
+              InputGeneric(
                 fontSizeText: 20,
                 textHint: 'Correo electrónico',
                 width: 0.8,
                 height: 0.06,
+                textEditingController: _emailController,
               ),
 
               // =====================================

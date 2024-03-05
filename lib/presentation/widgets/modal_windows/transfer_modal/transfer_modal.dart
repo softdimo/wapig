@@ -9,8 +9,7 @@ class ModalWindowTransfer extends StatefulWidget {
 
 class _ModalWindowTransferState extends State<ModalWindowTransfer> {
   final _textController = TextEditingController();
-  final String photoRoute =
-      '/uploaded_images/'; //Ruta de donde se cargarán las fotos
+  //final String photoRoute = '/uploaded_images/'; //Ruta de donde se cargarán las fotos
 
   // ignore: unused_field
   final _dateController = TextEditingController();
@@ -23,6 +22,7 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
   String selectedValueFrom = '';
   String selectedValueTo = '';
   bool allFieldsOk = false;
+  XFile? imageSelected;
 
   void onValue(String value) {}
 
@@ -40,34 +40,6 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
         print('Valor seleccionado en cuenta destino: $selectedValueTo');
       }
     }
-  }
-
-  Future<void> crearDirectorio() async {
-    final directory = Directory(photoRoute);
-    if (!await directory.exists()) {
-       directory.create(recursive: true);
-    }
-  }
-
-  Future<void> guardarFoto(XFile image) async {
-    await crearDirectorio();
-    final String path = '$photoRoute${image.name}';
-    final File foto = File(path);
-    await foto.writeAsBytes(
-        await image.readAsBytes()); // Usa writeAsBytes para escribir la foto
-  }
-
-  Future<void> tomarFoto() async {
-    final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(source: ImageSource.camera);
-
-    if (image != null) {
-      await guardarFoto(image);
-    }
-    /* if (image != null) {
-      final File foto = File(image.path);
-      await foto.copy(photoRoute);
-    } */
   }
 
   @override
@@ -144,11 +116,13 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
               SizedBox(
                 height: size.height * 0.005,
               ),
-              IconButton.outlined(
-                  onPressed: () {
-                    tomarFoto();
-                  },
-                  icon: const Icon(Icons.camera_alt)),
+              TakePhoto(
+                onImageFile: (imagePicked) {
+                  imageSelected = imagePicked;
+
+                  Navigator.of(context).pop();
+                },
+              ),
               ButtonsRow(
                 onPressed1: () => Navigator.pop(context),
                 onPressed2: () => _formKey.currentState!.validate() &&
@@ -164,6 +138,7 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
                         print('Texto ingresado: ${_textNoteController.text}'),
                         print('Cuenta origen: $selectedValueFrom'),
                         print('Cuenta destino: $selectedValueTo'),
+                        print('Imagen seleccionada: $imageSelected'),
                         Navigator.pop(context)
                         // Realizar otras acciones aquí, como enviar datos o navegar a otra pantalla
                       }
@@ -223,11 +198,4 @@ class _ModalWindowTransferState extends State<ModalWindowTransfer> {
       ),
     );
   }
-
-  /* void onFieldSubmitted(value) {
-    print('Valor en onFieldSubmitted: $value');
-    onValue(value);
-    _textController.clear();
-    focusNode.requestFocus();
-  } */
 }

@@ -10,6 +10,7 @@ class InputGenericPassword extends StatefulWidget {
   final IconData iconType;
   final String textHint;
   final double fontSizeText;
+  final TextEditingController textEditingController;
 
   const InputGenericPassword({
     super.key,
@@ -22,6 +23,7 @@ class InputGenericPassword extends StatefulWidget {
     this.iconType = Icons.email,
     required this.textHint,
     required this.fontSizeText,
+    required this.textEditingController,
   });
 
   @override
@@ -76,20 +78,19 @@ class _InputGenericState extends State<InputGenericPassword> {
           ),
           child: TextFormField(
             focusNode: _focusNode,
-            obscureText: _keyboardIsVisible
-          ? _obscureText
-          : true,
+            obscureText: _keyboardIsVisible ? _obscureText : true,
+            controller: widget.textEditingController,
             decoration: InputDecoration(
               border: InputBorder.none,
               prefixIcon: Icon(
                 widget.iconType,
                 color: widget.colorIcon,
               ),
-              suffixIcon: IconButton(icon: Icon(_obscureText
-                          ? Icons.visibility
-                          : Icons.visibility_off),
-                      onPressed: _toggleObscureText,
-                    ),
+              suffixIcon: IconButton(
+                icon: Icon(
+                    _obscureText ? Icons.visibility : Icons.visibility_off),
+                onPressed: _toggleObscureText,
+              ),
               hintText: widget.textHint,
               hintStyle: TextStyle(color: widget.colorText),
             ),

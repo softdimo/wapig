@@ -8,6 +8,11 @@ class RecuperarPwScreen2 extends StatefulWidget {
 }
 
 class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
+  final _emailController = TextEditingController();
+  final _codeController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     // Obtener las dimensiones de la pantalla
@@ -76,12 +81,14 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
               // ============================
 
               // Inputs
-              const InputGeneric(
+              InputGeneric(
                 fontSizeText: 20,
                 textHint: 'Ingrese código',
                 width: 0.8,
                 height: 0.06,
                 iconType: Icons.emergency,
+                textEditingController: _codeController,
+
               ),
 
               // ============================
@@ -90,11 +97,12 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
 
               // ============================
 
-              const InputGeneric(
+              InputGeneric(
                 fontSizeText: 20,
                 textHint: 'Correo electrónico',
                 width: 0.8,
                 height: 0.06,
+                textEditingController: _emailController,
               ),
 
               // ============================
@@ -103,10 +111,12 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
 
               // ============================
 
-              const InputGenericPassword(
+              InputGenericPassword(
                 fontSizeText: 20,
                 textHint: 'Contraseña',
                 iconType: Icons.lock,
+                textEditingController: _passwordController,
+
               ),
 
               // ============================
@@ -115,10 +125,11 @@ class _RecuperarPwScreenState2 extends State<RecuperarPwScreen2> {
 
               // ============================
 
-              const InputGenericPassword(
+              InputGenericPassword(
                 fontSizeText: 20,
                 textHint: 'Confirmar Contraseña',
                 iconType: Icons.lock,
+                textEditingController: _confirmPasswordController,
               ),
 
               // ============================
